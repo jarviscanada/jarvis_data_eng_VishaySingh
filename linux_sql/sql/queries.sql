@@ -34,9 +34,6 @@ ORDER BY hur.host_id, hur.rounded_time;
 -- 3. Detect host failure --
 
 -- Query for finding failed hosts
-SELECT host_id, rounded_time, num_data_points
-FROM () AS tn;
-
 SELECT DISTINCT ON (hur.host_id) hur.host_id, hur.rounded_time as rounded_time, COUNT(*) as num_data_points
 FROM host_usage_rounded hur
 GROUP BY hur.host_id, hur.rounded_time
