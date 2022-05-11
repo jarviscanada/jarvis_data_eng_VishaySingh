@@ -15,7 +15,6 @@ if [ $# -ne  5 ]; then
 fi
 
 #Save machine information to variables for later
-meminfo=$(cat /proc/meminfo)
 vmstat_t=$(vmstat -t --unit M)
 hostname=$(hostname -f)
 
@@ -23,8 +22,8 @@ hostname=$(hostname -f)
 memory_free=$(echo "${vmstat_t}"  | awk '{print $4}' | xargs | awk '{print $NF}')
 cpu_idle=$(echo "${vmstat_t}"  | awk '{print $15}' | xargs | awk '{print $NF}')
 cpu_kernel=$(echo "${vmstat_t}"  | awk '{print $14}' | xargs | awk '{print $NF}')
-disk_io=$(echo "$(vmstat -d)"  | awk '{print $9}' | xargs | awk '{print $2}')
-disk_available=$(echo "$(df -BM /)"  | awk '{print $4}' | xargs | cut -d"M" -f 1 | awk '{print $NF}')
+disk_io=$(vmstat -d  | awk '{print $9}' | xargs | awk '{print $2}')
+disk_available=$(df -BM /  | awk '{print $4}' | xargs | cut -d"M" -f 1 | awk '{print $NF}')
 
 #Current time in `2019-11-26 14:40:19` UTC format
 timestamp=$(echo "${vmstat_t}"  | awk '{print $18, $19}' | xargs | awk '{print $2, $3}')
