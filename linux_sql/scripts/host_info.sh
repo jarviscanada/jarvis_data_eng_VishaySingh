@@ -14,7 +14,7 @@ if [ $# -ne  5 ]; then
   exit 1
 fi
 
-#save machine information to variables for later
+#Save machine information to variables for later
 meminfo=$(cat /proc/meminfo)
 vmstat_t=$(vmstat -t --unit M)
 hostname=$(hostname -f)
@@ -35,7 +35,7 @@ timestamp=$(echo "${vmstat_t}"  | awk '{print $18, $19}' | xargs | awk '{print $
 insert_stmt="INSERT INTO host_info (hostname, cpu_number, cpu_architecture, cpu_model, cpu_mhz, L2_cache, total_mem, \"timestamp\")
 VALUES ('$hostname', $cpu_number, '$cpu_architecture', '$cpu_model', $cpu_mhz, $l2_cache, $total_mem, '$timestamp');"
 
-#set the env var for the psql cmd
+#Set the env var for the psql cmd
 export PGPASSWORD=$psql_password
 
 #Insert the new row into the database
