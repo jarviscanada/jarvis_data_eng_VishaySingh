@@ -26,7 +26,7 @@ FROM host_usage;
 
 -- Actual query to retrieve avg mem usage
 SELECT hur.host_id, hin.hostname, hur.rounded_time,
-       FLOOR(AVG((hin.total_mem - hur.memory_free)*1.0 / hin.total_mem)*100) AS avg_used_mem_percentage
+       CEILING(AVG((hin.total_mem - hur.memory_free)*1.0 / hin.total_mem)*100) AS avg_used_mem_percentage
 FROM host_info hin INNER JOIN host_usage_rounded hur ON hin.id = hur.host_id
 GROUP BY hur.host_id, hin.hostname, hur.rounded_time
 ORDER BY hur.host_id, hur.rounded_time;
