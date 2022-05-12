@@ -1,14 +1,13 @@
 # Linux Cluster Monitoring Agent
-This project is under development. Since this project follows GitFlow, the final work will be merged to the main branch after Team Code Review.
 # Introduction
-The Linux Cluster Monitoring Agent is used to allow users to monitor server node usage in a Linux cluster by tracking relevant information (e.g. current free memory, cpu utilization, etc.) for each host. This could be used by companies that would like to know whether or not their Linux cluster is evenly utilizing system resources, so that they can optimize server usage allocation. For example, if ¾ nodes are running close to 90% cpu utilization, while ¼ nodes are only around 20% on average, then the company can allocate more resources to be run on the latter. This project used bash scripting and crontab to automate host usage information, database setup, etc. Data was persisted using a postgreSQL instance on Docker, and GitFlow branching methodology was used to ensure smooth releases.   
+The Linux Cluster Monitoring Agent is used to allow users to monitor server node usage in a Linux cluster by tracking relevant information (e.g. current free memory, CPU utilization, etc.) for each host. This could be used by companies that would like to know whether or not their Linux cluster is evenly utilizing system resources, so that they can optimize server usage allocation. For example, if ¾ nodes are running close to 90% CPU utilization, while ¼ nodes are only around 20% on average, then the company can allocate more resources to be run on the latter. This project used bash scripting and crontab to automate host usage information, database setup, etc. Data was persisted using a PostgreSQL instance on Docker, and Git Flow branching methodology was used to ensure smooth releases.   
 
 # Quick Start
-1. First we need to initialize the database. Let's use the ```psql_docker.sh``` script:
+1. First, we need to initialize the database. Let's use the ```psql_docker.sh``` script:
 ```bash
 ./scripts/psql_docker.sh create [db_username][db_password]
 ```
-```db_username``` and ```db_password``` refers to the databases' username and password respectively. Once this line is run, we can move on to the next step (if you get an error here, please check the error message for information on what went wrong).
+```db_username``` and ```db_password``` refers to the databases' username and password, respectively. Once this line is run, we can move on to the next step (if you get an error here, please check the error message for information on what went wrong).
 
 Next, we need to start the database:
 ```bash
@@ -28,7 +27,7 @@ psql -h localhost -U postgres -d host_agent -f sql/ddl.sql
 ```bash
 ./scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 ```
-```psql_host```, ```psql_port```, ```db_name```, ```psql_user```, ```psql_password``` refers to the postgres host, postgres port, database name, postgres username, and postgres password respectively.
+```psql_host```, ```psql_port```, ```db_name```, ```psql_user```, ```psql_password``` refers to the Postgres host, Postgres port, database name, Postgres username, and Postgres password respectively.
 
 4. This script (```host_usage.sh```) records a snapshot of the current node's usage. It can be run manually from the CLI to record hardware usage data into the database:
 ```bash
@@ -60,11 +59,11 @@ psql -h psql_host -d db_name -U postgres -W
 SELECT * FROM host_usage;
 ```
 
-# Implemention
-The project was implemented using GitFlow branching methodology, so feature branches were made for each user story (e.g. feature/readme was used for this README file). IntelliJ was used as the IDE for development and testing for all code, including the bash scripts, and SQL-related files. Docker provided the container for the postgreSQL database, so the psql shell was essential for testing table creation and insertion, and the specific queries themselves. By the same token, bash scripts were prototyped using the CLI to ascertain their success. Once the develop branch had enough features for a releasable state, a pull request was made to the release branch, with an accompanying code review by a senior developer. Finally, the pull request to master was made with this finished product, and a master code review was conducted, also by a senior developer. 
+# Implementation
+The project was implemented using Git Flow branching methodology, so feature branches were made for each user story (e.g. feature/readme was used for this README file). IntelliJ was used as the IDE for development and testing for all code, including the bash scripts, and SQL-related files. Docker provided the container for the PostgreSQL database, so the psql shell was essential for testing table creation and insertion, and the specific queries themselves. By the same token, bash scripts were prototyped using the CLI to ascertain their success. Once the develop branch had enough features for a releasable state, a pull request was made to the release branch, with an accompanying code review by a senior developer. Finally, the pull request to master was made with this finished product, and a master code review was conducted, also by a senior developer. 
 
 ## Architecture
-This diagram illustrates three seperate Linux hosts, or "nodes", the postgreSQL database, and the agents (denoted as bash scripts). To view this diagram by itself, please see the `assets` directory.
+This diagram illustrates three separate Linux hosts, or "nodes", the PostgreSQL database, and the agents (denoted as bash scripts). To view this diagram by itself, please see the `assets` directory.
 ![architecture_diagram](https://user-images.githubusercontent.com/56552567/167919933-f9cf27e1-ea48-4f65-a63f-db1d23cab192.png)
 
 
@@ -75,7 +74,7 @@ This script is used to create a psql docker container, and start/stop the runnin
 ```bash
 ./scripts/psql_docker.sh create [db_username][db_password]
 ```
-```db_username``` and ```db_password``` refers to the databases' username and password respectively. Once this line is run, we can move on to the next step (if you get an error here, please check the error message for information on what went wrong).
+```db_username``` and ```db_password``` refers to the databases' username and password, respectively. Once this line is run, we can move on to the next step (if you get an error here, please check the error message for information on what went wrong).
 
 Starting the database:
 ```bash
@@ -90,13 +89,13 @@ This script is used to record a server node's hardware specification in the data
 ```bash
 ./scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 ```
-```psql_host```, ```psql_port```, ```db_name```, ```psql_user```, ```psql_password``` refers to the postgres host, postgres port, database name, postgres username, and postgres password respectively.
+```psql_host```, ```psql_port```, ```db_name```, ```psql_user```, ```psql_password``` refers to the Postgres host, Postgres port, database name, Postgres username, and Postgres password respectively.
 3. `host_usage.sh`
 This script is used to record server node usage information in the database, so it can be run manually or automated with crontab. Here is its usage:
 ```bash
 ./scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
-```psql_host```, ```psql_port```, ```db_name```, ```psql_user```, ```psql_password``` refers to the postgres host, postgres port, database name, postgres username, and postgres password respectively.
+```psql_host```, ```psql_port```, ```db_name```, ```psql_user```, ```psql_password``` refers to the Postgres host, Postgres port, database name, Postgres username, and Postgres password respectively.
 4. `crontab`
 Crontab is the tool used to automate host usage statistics. Here is its usage:
 ```bash
@@ -122,9 +121,9 @@ psql -h psql_host -d db_name -U postgres -W
 SELECT * FROM host_usage;
 ```
 5. `queries.sql`
-This script aims to answer some common business questions. Namely, "1. Can we group hosts by their hardware information, to better organize our cluster?", "2. Can we retrieve average memory usage over 5 minute intervals, to see which nodes are underperforming or overperforming?", and "3. Can we detect when a host failed to report its usage, to determine errors within our cluster?". There are queries made within the script that provides meaningful data to answers these specific questions.
+This script aims to answer some common business questions. Namely, "1. Can we group hosts by their hardware information, to better organize our cluster?", "2. Can we retrieve average memory usage over 5 minute intervals, to see which nodes are underperforming or over performing?", and "3. Can we detect when a host failed to report its usage, to determine errors within our cluster?". There are queries made within the script that provides meaningful data to answers these specific questions.
 
-## Database Modeling
+## Database Modelling
 - The schema for `host_info`:
 
 | Attribute        | Meaning                                                                                                  |
@@ -135,8 +134,8 @@ This script aims to answer some common business questions. Namely, "1. Can we gr
 | `cpu_architecture` | The specific CPU architecture of this node                                                               |
 | `cpu_model`        | The model name of this CPU                                                                               |
 | `cpu_mhz`          | The clock rate of this CPU in MHz                                                                        |
-| `L2_cache`         | The amount of L2 cache in this CPU in kB                                                                 |
-| `total_mem`        | The total amount of system memory in kB                                                                  |
+| `L2_cache`         | The amount of L2 cache in this CPU in KB                                                                 |
+| `total_mem`        | The total amount of system memory in KB                                                                  |
 | `timestamp`        | The timestamp snapshot of when this information was recorded                                             |
 
 - The schema for `host_usage`:
@@ -160,7 +159,7 @@ This tool is deployable through downloading this GitHub repo, docker, and cronta
 # Improvements
 - Improve SQL queries
 
-In all likelihood, there are simpler/better performing SQL queries that accomplish the same task as described in the `Scripts` section. It would be nice to improve this project with updated streamlines queries, or even more queries, to better serve businessed needs.
+In all likelihood, there are simpler/better performing SQL queries that accomplish the same task as described in the `Scripts` section. It would be nice to improve this project with updated streamlines queries, or even more queries, to better serve businesses needs.
 
 - Expand host usage summary statistics
 
