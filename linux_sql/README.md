@@ -64,7 +64,8 @@ The project was implemented using Git Flow branching methodology, so feature bra
 
 ## Architecture
 This diagram illustrates three separate Linux hosts, or "nodes", the PostgreSQL database, and the agents (denoted as bash scripts). To view this diagram by itself, please see the `assets` directory.
-![architecture_diagram](https://user-images.githubusercontent.com/56552567/167919933-f9cf27e1-ea48-4f65-a63f-db1d23cab192.png)
+
+![architecture_diagram](./assets/architecture_diagram.png)
 
 
 ## Scripts
