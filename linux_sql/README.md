@@ -60,10 +60,11 @@ psql -h psql_host -d db_name -U postgres -W
 SELECT * FROM host_usage;
 ```
 
-# Implemenation
-Discuss how you implement the project.
+# Implemention
+The project was implemented using GitFlow branching methodology, so feature branches were made for each user story (e.g. feature/readme was used for this README file). IntelliJ was used as the IDE for development and testing for all code, including the bash scripts, and SQL-related files. Docker provided the container for the postgreSQL database, so the psql shell was essential for testing table creation and insertion, and the specific queries themselves. By the same token, bash scripts were prototyped using the CLI to ascertain their success. Once the develop branch had enough features for a releasable state, a pull request was made to the release branch, with an accompanying code review by a senior developer. Finally, the pull request to master was made with this finished product, and a master code review was conducted, also by a senior developer. 
+
 ## Architecture
-Draw a cluster diagram with three Linux hosts, a DB, and agents (use draw.io website). Image must be saved to the `assets` directory.
+This diagram illustrates three seperate Linux hosts, or "nodes", the postgreSQL database, and the agents (denoted as bash scripts). To view this diagram by itself, please see the `assets` directory.
 ![architecture_diagram](https://user-images.githubusercontent.com/56552567/167919933-f9cf27e1-ea48-4f65-a63f-db1d23cab192.png)
 
 
