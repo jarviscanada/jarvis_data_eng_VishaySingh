@@ -151,7 +151,6 @@ This script aims to answer some common business questions. Namely, "1. Can we gr
 | `disk_io`        | The number of disk I/O made                                         |
 | `disk_available` | The amount of disk space available from the root directory in MB    |
 # Test
-How did you test your bash scripts and SQL queries? What was the result?
 CI/CD was not setup for this project, so testing involved mostly just running different edge cases to check that everything was running correctly. For the bash scripts this meant running them in the CLI using `bash -x script` to debug when errors were presented. As for the SQL queries, IntelliJ Ultimate's database tool was used as a GUI client to help construct queries, but ultimately the queries were tested in the psql shell. The results from the shell were compared against the expected output to test for correctness. The result of this testing found numerous bugs/errors that were later fixed.
 
 # Deployment
