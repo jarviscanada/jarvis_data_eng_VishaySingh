@@ -11,12 +11,12 @@ public class RegexExcImp implements RegexExc {
    *
    * @param regex
    * @param check
-   * @param case_insensitive
+   * @param caseInsensitive
    * @return
    */
-  private boolean matchCheck(String regex, String check, boolean case_insensitive) {
+  private boolean matchCheck(String regex, String check, boolean caseInsensitive) {
     Pattern p;
-    if (case_insensitive) {
+    if (caseInsensitive) {
       p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
     } else {
       p = Pattern.compile(regex);
