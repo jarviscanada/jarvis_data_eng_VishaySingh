@@ -66,6 +66,6 @@ public class RegexExcImp implements RegexExc {
    */
   @Override
   public boolean isEmptyLine(String line) {
-    return this.matchCheck("^$", line, false);
+    return this.matchCheck("^ *$", line, false);
   }
 }
