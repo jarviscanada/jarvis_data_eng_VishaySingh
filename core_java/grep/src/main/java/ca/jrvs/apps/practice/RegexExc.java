@@ -3,6 +3,16 @@ package ca.jrvs.apps.practice;
 public interface RegexExc {
 
   /**
+   * private helper method for this class
+   *
+   * @param regex
+   * @param check
+   * @param caseInsensitive
+   * @return
+   */
+  public boolean matchCheck(String regex, String check, boolean caseInsensitive);
+
+  /**
    * return true if filename extension is jpg or jpeg (case insensitive)
    *
    * @param filename
