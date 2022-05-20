@@ -18,7 +18,7 @@ public class RegExcImpTest {
 
   @AfterClass
   public static void testCleanup() {
-    // Do your cleanup here like close URL connection , releasing resources etc
+    // Do cleanup here
   }
 
   @Test
