@@ -158,7 +158,7 @@ public class JavaGrepImp implements JavaGrep {
    * @throws IllegalArgumentException if inputFile is not a file
    */
   @Override
-  public List<String> readLines(File inputFile) throws IllegalArgumentException {
+  public List<String> readLines(File inputFile) throws IllegalArgumentException, IOException {
     //check for correct file
     if (!inputFile.isFile()) {
       throw new IllegalArgumentException("ERROR: file does not exist");
