@@ -192,7 +192,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc {
    */
   @Override
   public Stream<Integer> flatNestedInt(Stream<List<Integer>> ints) {
-    //soln 1: ints.flatMap(lst -> lst.stream().map(x-> x * x));
+    //soln 1: return ints.flatMap(lst -> lst.stream().map(x-> (int) Math.pow(x, x)));
 
     //soln 2:
     return ints.flatMap(lst -> lst.stream().map(x-> x * x));
