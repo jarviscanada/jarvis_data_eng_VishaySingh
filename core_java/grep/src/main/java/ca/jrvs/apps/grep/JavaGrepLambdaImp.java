@@ -7,9 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -76,6 +76,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
 
   /**
    * Implement using lambda/stream APIs
+   *
    * @param lines
    * @throws IOException
    */
@@ -93,7 +94,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     stringStream.forEach(line -> {
       try {
         writer[0] = new BufferedWriter(new OutputStreamWriter(
-            new FileOutputStream(file, true), "utf-8"));
+            new FileOutputStream(file, true), StandardCharsets.UTF_8));
         writer[0].write(line + "\n");
       } catch (IOException e) {
         try {
@@ -107,6 +108,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
         } catch (NullPointerException | IOException e) {
           //do nothing
         }
-    }});
+      }
+    });
   }
 }
