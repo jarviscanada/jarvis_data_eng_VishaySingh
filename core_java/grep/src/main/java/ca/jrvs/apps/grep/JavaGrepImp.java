@@ -123,7 +123,7 @@ public class JavaGrepImp implements JavaGrep {
    * @return files under the rootDir
    */
   @Override
-  public List<File> listFiles(String rootDir) {
+  public List<File> listFiles(String rootDir) throws IOException {
     List<File> files = new ArrayList<File>();
     File rootFile = new File(rootDir);
 
