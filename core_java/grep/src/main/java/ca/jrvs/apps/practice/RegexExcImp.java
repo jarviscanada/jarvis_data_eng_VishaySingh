@@ -14,7 +14,8 @@ public class RegexExcImp implements RegexExc {
    * @param caseInsensitive
    * @return
    */
-  private boolean matchCheck(String regex, String check, boolean caseInsensitive) {
+  @Override
+  public boolean matchCheck(String regex, String check, boolean caseInsensitive) {
     Pattern p;
     if (caseInsensitive) {
       p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
