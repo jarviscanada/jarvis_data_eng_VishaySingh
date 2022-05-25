@@ -1,8 +1,8 @@
 package ca.jrvs.apps.grep;
 
 import ca.jrvs.apps.practice.RegexExcImp;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -41,10 +41,6 @@ public class JavaGrepImp implements JavaGrep {
     } catch (Exception e) {
       javaGrepImp.logger.error("Error: Unable to process", e);
     }
-  }
-
-  public Logger getLogger() {
-    return logger;
   }
 
   @Override
