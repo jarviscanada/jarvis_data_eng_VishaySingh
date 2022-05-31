@@ -2,9 +2,9 @@
 This is intended for Linux/MacOS.
 
 ## Prerequisites
-Docker is installed
-psql client is installed
-`psql_docker.sh` was ran (create, and start)
+* Docker is installed
+* psql client is installed
+* `psql_docker.sh` was ran (create, and start)
 
 ### Login to PostgreSQL
 * `psql -h localhost -U postgres -d hplussport`
