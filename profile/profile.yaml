@@ -29,13 +29,22 @@ skills:
     - C
     - IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.)
     - REST API
+    - Docker
+    - DAO design pattern
+    - CRUD
+    - JDBC
+    - Regular Expressions
   # At least 5 skills
   competent:
     - JavaScript
     - Numpy, scikit-learn, Pandas, Pytorch, Matplotlib
     - JIRA
     - CI/CD
-    - Docker
+    - Repository design pattern
+    - JUnit
+    - Maven
+    - Lambda Expressions
+    - Stream API
   # At least 5 skills
   familiar:
     - Racket & Haskell
@@ -57,9 +66,13 @@ jarvis_projects:
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
-      - "Twitter App: Not started."
-      - "JDBC App: Not started."
-      - "Grep App: In progress."
+      - "Twitter App: In progress."
+      - "JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, 
+      the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD
+      persisted sales data, resulting in atomic business-related queries."
+      - "Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep
+      command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively 
+      traverses file paths resulting in an output file with all matching strings."
   - name: "Springboot App"
     git_url: "/springboot"
     description: "Not started."
@@ -86,7 +99,7 @@ highlighted_projects:
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: |
       Designed, implemented, and tested an MVC architecture web application using the MERN 
-      stack in a team of 6.
+      stack (MongoDB, Express.js, React.js, Node.js) in a team of 6.
   - name: "Deep Learning - RNN Lyric Generation Model"
     git_url: "https://github.com/V35games/Lyric-Generation-Model"
     description: |
@@ -122,7 +135,7 @@ professional_experience:
 education: 
   - school_name: "University of Toronto, Mississauga"
     duration: "2018-2022"
-    degree: "Honours Bachelor of Science"
+    degree: "Honours Bachelor of Science (HBSc.)"
     department: "Mathematical and Computational Sciences"
     # optional
     awards_achievements: 

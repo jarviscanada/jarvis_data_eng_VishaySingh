@@ -10,9 +10,9 @@ playing video games, or learning guitar.
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, MongoDB, Neo4J, Agile/Scrum, Git, Python, C, IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.), REST API
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, MongoDB, Neo4J, Agile/Scrum, Git, Python, C, IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.), REST API, Docker, DAO design pattern, CRUD, JDBC, Regular Expressions
 
-**Competent:** JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Docker
+**Competent:** JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Repository design pattern, JUnit, Maven, Lambda Expressions, Stream API
 
 **Familiar:** Racket & Haskell, R, Assembly, HTML, C++
 
@@ -28,9 +28,9 @@ for the entire cluster.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/core_java)]:
       
-  - Twitter App: Not started.
-  - JDBC App: Not started.
-  - Grep App: In progress.
+  - Twitter App: In progress.
+  - JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD persisted sales data, resulting in atomic business-related queries.
+  - Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively traverses file paths resulting in an output file with all matching strings.
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/springboot)]: Not started.
 
@@ -45,7 +45,7 @@ for the entire cluster.
 
 ## Highlighted Projects
 **Google Developer Student Club Website** [[GitHub](https://github.com/UTSCCSCC01/finalprojectw22-GDSC2.0)]: Designed, implemented, and tested an MVC architecture web application using the MERN 
-stack in a team of 6.
+stack (MongoDB, Express.js, React.js, Node.js) in a team of 6.
 
 
 **Deep Learning - RNN Lyric Generation Model** [[GitHub](https://github.com/V35games/Lyric-Generation-Model)]: Designed, implemented, trained, and tested an RNN Generative Model to achieve a 58% test accuracy.
@@ -70,7 +70,7 @@ for satisfied clients.
 
 
 ## Education
-**University of Toronto, Mississauga (2018-2022)**, Honours Bachelor of Science, Mathematical and Computational Sciences
+**University of Toronto, Mississauga (2018-2022)**, Honours Bachelor of Science (HBSc.), Mathematical and Computational Sciences
 - UTM Entrance Scholarship
 - University of Toronto Grants (UTAPS) 2019-2022
 - CGPA: 3.27/4.0

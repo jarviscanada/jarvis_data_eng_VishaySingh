@@ -7,7 +7,7 @@
         "CGPA: 3.27/4.0",
         "Final Year GPA: 3.71/4.0"
       ],
-      "degree": "Honours Bachelor of Science",
+      "degree": "Honours Bachelor of Science (HBSc.)",
       "department": "Mathematical and Computational Sciences",
       "duration": "2018-2022",
       "school_name": "University of Toronto, Mississauga"
@@ -16,7 +16,7 @@
   "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_VishaySingh",
   "highlighted_projects": [
     {
-      "description": "Designed, implemented, and tested an MVC architecture web application using the MERN \nstack in a team of 6.\n",
+      "description": "Designed, implemented, and tested an MVC architecture web application using the MERN \nstack (MongoDB, Express.js, React.js, Node.js) in a team of 6.\n",
       "git_url": "https://github.com/UTSCCSCC01/finalprojectw22-GDSC2.0",
       "name": "Google Developer Student Club Website"
     },
@@ -39,9 +39,9 @@
     },
     {
       "description": [
-        "Twitter App: Not started.",
-        "JDBC App: Not started.",
-        "Grep App: In progress."
+        "Twitter App: In progress.",
+        "JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD persisted sales data, resulting in atomic business-related queries.",
+        "Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively traverses file paths resulting in an output file with all matching strings."
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
@@ -104,7 +104,11 @@
       "Numpy, scikit-learn, Pandas, Pytorch, Matplotlib",
       "JIRA",
       "CI/CD",
-      "Docker"
+      "Repository design pattern",
+      "JUnit",
+      "Maven",
+      "Lambda Expressions",
+      "Stream API"
     ],
     "familiar": [
       "Racket \u0026 Haskell",
@@ -124,7 +128,12 @@
       "Python",
       "C",
       "IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.)",
-      "REST API"
+      "REST API",
+      "Docker",
+      "DAO design pattern",
+      "CRUD",
+      "JDBC",
+      "Regular Expressions"
     ]
   },
   "summary": "Hello there! My name is Vishay Singh and I graduated from the University of Toronto with an Honours \nBachelor's Degree of Science, majoring in Computer Science and French Studies. Since a young age, I've\nbeen fascinated by what technology can do to solve real world problems, which is exactly what I want \nto do in the software industry. In fact, learning new things is a passion of mine, so software provides \nthe perfect avenue to continually challenge myself. In my spare time, I'm either building computers, \nplaying video games, or learning guitar.\n"
