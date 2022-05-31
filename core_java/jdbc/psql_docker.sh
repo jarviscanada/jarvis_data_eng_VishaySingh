@@ -16,6 +16,17 @@ container_status=$?
 
 #Switch case to handle create|stop|start commands
 case $cmd in
+  -h|--help)
+  echo '========================================================'
+  echo 'SCRIPT USAGE:'
+  echo './psql_docker.sh [COMMAND] [ARGUMENTS]'
+  echo '========================================================'
+  echo 'EXAMPLE:'
+  echo './psql_docker.sh create container_name username password'
+  echo './psql_docker.sh start container_name'
+  echo './psql_docker.sh stop container_name'
+  echo '========================================================'
+  ;;
   create)
 
   #Check if the container is already exists
@@ -57,6 +68,7 @@ case $cmd in
   *)
 	echo 'Illegal command'
 	echo 'Commands: start|stop|create'
+	echo 'Type -h or --help for help'
 	exit 1
 	;;
 esac
