@@ -39,6 +39,10 @@ public class Fibonacci {
 
   /**
    * Recursive Fibonacci Implementation
+   * <p>
+   * Big-O Time Complexity: This is bounded by O(2^n) time due to repeated recursive calls
+   * <p>
+   * Big-O Space Complexity: This is bounded by O(n) space due to the height of the recursion tree
    *
    * @param n
    * @return
