@@ -1,6 +1,6 @@
 package ca.jrvs.practice.dataStructure.list;
 
-public class ArrayJLists<E> implements JList<E>{
+public class ArrayJLists<E> implements JList<E> {
 
   /**
    * Default initial capacity.
@@ -8,8 +8,8 @@ public class ArrayJLists<E> implements JList<E>{
   private static final int DEFAULT_CAPACITY = 10;
 
   /**
-   * The array buffer into which the elements of the ArrayList are stored.
-   * The capacity of the ArrayList is the length of this array buffer.
+   * The array buffer into which the elements of the ArrayList are stored. The capacity of the
+   * ArrayList is the length of this array buffer.
    */
   transient Object[] elementData; // non-private to simplify nested class access
   /**
@@ -20,9 +20,8 @@ public class ArrayJLists<E> implements JList<E>{
   /**
    * Constructs an empty list with the specified initial capacity.
    *
-   * @param  initialCapacity  the initial capacity of the list
-   * @throws IllegalArgumentException if the specified initial capacity
-   *         is negative
+   * @param initialCapacity the initial capacity of the list
+   * @throws IllegalArgumentException if the specified initial capacity is negative
    */
   public ArrayJLists(int initialCapacity) {
     if (initialCapacity > 0) {
@@ -42,18 +41,17 @@ public class ArrayJLists<E> implements JList<E>{
   }
 
   /**
-   * Increases the capacity of this <tt>ArrayJList</tt> instance, if
-   * necessary, to ensure  that it can hold at least the number of elements
-   * specified by the minimum capacity argument.
+   * Increases the capacity of this <tt>ArrayJList</tt> instance, if necessary, to ensure  that it
+   * can hold at least the number of elements specified by the minimum capacity argument.
    *
-   * @param   minCapacity   the desired minimum capacity.
+   * @param minCapacity the desired minimum capacity.
    */
   public void ensureCapacity(int minCapacity) {
     int oldCapacity = elementData.length;
     if (minCapacity > oldCapacity) {
-      Object oldData[] = elementData;
-      int newCapacity = (oldCapacity * 3)/2 + 1;
-      if (newCapacity < minCapacity){
+      Object[] oldData = elementData;
+      int newCapacity = (oldCapacity * 3) / 2 + 1;
+      if (newCapacity < minCapacity) {
         newCapacity = minCapacity;
       }
       elementData = new Object[newCapacity];
@@ -122,13 +120,17 @@ public class ArrayJLists<E> implements JList<E>{
   @Override
   public int indexOf(Object o) {
     if (o == null) {
-      for (int i = size-1; i >= 0; i--)
-        if (elementData[i]==null)
+      for (int i = size - 1; i >= 0; i--) {
+        if (elementData[i] == null) {
           return i;
+        }
+      }
     } else {
-      for (int i = size-1; i >= 0; i--)
-        if (o.equals(elementData[i]))
+      for (int i = size - 1; i >= 0; i--) {
+        if (o.equals(elementData[i])) {
           return i;
+        }
+      }
     }
     return -1;
   }
@@ -158,7 +160,7 @@ public class ArrayJLists<E> implements JList<E>{
    */
   @Override
   public E get(int index) {
-    if (index <= size && index >= 0){
+    if (index <= size && index >= 0) {
       return (E) elementData[index];
     }
     throw new IndexOutOfBoundsException();
@@ -174,13 +176,14 @@ public class ArrayJLists<E> implements JList<E>{
    */
   @Override
   public E remove(int index) {
-    if (index <= size && index >= 0){
+    if (index <= size && index >= 0) {
       E oldVal = (E) elementData[index];
 
       int numMoved = size - index - 1;
-      if (numMoved > 0)
-        System.arraycopy(elementData, index+1, elementData, index,
+      if (numMoved > 0) {
+        System.arraycopy(elementData, index + 1, elementData, index,
             numMoved);
+      }
       elementData[--size] = null;
 
       return oldVal;
@@ -195,7 +198,7 @@ public class ArrayJLists<E> implements JList<E>{
   @Override
   public void clear() {
     int i = size;
-    while(!this.isEmpty() && i >= 0){
+    while (!this.isEmpty() && i >= 0) {
       this.remove(i);
       i--;
     }

@@ -1,25 +1,21 @@
 package ca.jrvs.practice.dataStructure.list;
 
 
-import java.util.LinkedList;
-
-public class LinkedJList<E> implements JList<E>{
+public class LinkedJList<E> implements JList<E> {
 
   public LinkedJList() {
   }
 
   private transient int size = 0;
   /**
-   * Pointer to first node.
-   * Invariant: (first == null && last == null) ||
-   *            (first.prev == null && first.item != null)
+   * Pointer to first node. Invariant: (first == null && last == null) || (first.prev == null &&
+   * first.item != null)
    */
   transient Node<E> first;
 
   /**
-   * Pointer to last node.
-   * Invariant: (first == null && last == null) ||
-   *            (last.next == null && last.item != null)
+   * Pointer to last node. Invariant: (first == null && last == null) || (last.next == null &&
+   * last.item != null)
    */
   transient Node<E> last;
 
@@ -36,10 +32,11 @@ public class LinkedJList<E> implements JList<E>{
     final Node<E> l = last;
     final Node<E> newNode = new Node<>(l, e, null);
     last = newNode;
-    if (l == null)
+    if (l == null) {
       first = newNode;
-    else
+    } else {
       l.next = newNode;
+    }
     size++;
     return true;
   }
@@ -57,8 +54,9 @@ public class LinkedJList<E> implements JList<E>{
   public Object[] toArray() {
     Object[] result = new Object[size];
     int i = 0;
-    for (Node<E> x = first; x != null; x = x.next)
+    for (Node<E> x = first; x != null; x = x.next) {
       result[i++] = x.item;
+    }
     return result;
   }
 
@@ -94,14 +92,16 @@ public class LinkedJList<E> implements JList<E>{
     int index = 0;
     if (o == null) {
       for (Node<E> x = first; x != null; x = x.next) {
-        if (x.item == null)
+        if (x.item == null) {
           return index;
+        }
         index++;
       }
     } else {
       for (Node<E> x = first; x != null; x = x.next) {
-        if (o.equals(x.item))
+        if (o.equals(x.item)) {
           return index;
+        }
         index++;
       }
     }
@@ -134,15 +134,17 @@ public class LinkedJList<E> implements JList<E>{
   @Override
   public E get(int index) {
     Node<E> x;
-    if (index >= 0 && index < size){
+    if (index >= 0 && index < size) {
       if (index < (size >> 1)) {
         x = first;
-        for (int i = 0; i < index; i++)
+        for (int i = 0; i < index; i++) {
           x = x.next;
+        }
       } else {
         x = last;
-        for (int i = size - 1; i > index; i--)
+        for (int i = size - 1; i > index; i--) {
           x = x.prev;
+        }
       }
       return x.item;
     }
@@ -172,6 +174,7 @@ public class LinkedJList<E> implements JList<E>{
   }
 
   private static class Node<E> {
+
     E item;
     Node<E> next;
     Node<E> prev;

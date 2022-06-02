@@ -1,7 +1,5 @@
 package ca.jrvs.practice.dataStructure.list;
 
-import java.util.LinkedList;
-
 public class Node<E> {
 
   E item;
