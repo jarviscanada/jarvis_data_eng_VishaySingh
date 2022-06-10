@@ -1,9 +1,7 @@
 package ca.jrvs.apps.twitter.dao.helper;
 
-import com.google.gdata.util.common.base.PercentEscaper;
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import oauth.signpost.OAuthConsumer;
 import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 import oauth.signpost.exception.OAuthCommunicationException;
@@ -16,16 +14,15 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.springframework.http.HttpMethod;
 
-public class TwitterHttpHelper implements HttpHelper{
+public class TwitterHttpHelper implements HttpHelper {
 
   /**
    * Dependencies
    */
-  private OAuthConsumer consumer;
-  private HttpClient httpClient;
+  private final OAuthConsumer consumer;
+  private final HttpClient httpClient;
 
   public TwitterHttpHelper(String consumerKey, String consumerSecret, String accessToken,
       String tokenSecret) {
@@ -67,13 +64,13 @@ public class TwitterHttpHelper implements HttpHelper{
     }
   }
 
-  private HttpResponse postRequest(URI uri, HttpMethod method, StringEntity stringEntity){
-    if (method == HttpMethod.GET){
+  private HttpResponse postRequest(URI uri, HttpMethod method, StringEntity stringEntity) {
+    if (method == HttpMethod.GET) {
       HttpGet request = new HttpGet(uri);
       return signRequest(request);
-    } else if (method == HttpMethod.POST){
+    } else if (method == HttpMethod.POST) {
       HttpPost request = new HttpPost(uri);
-      if (stringEntity != null){
+      if (stringEntity != null) {
         request.setEntity(stringEntity);
       }
       return signRequest(request);
@@ -81,7 +78,7 @@ public class TwitterHttpHelper implements HttpHelper{
     throw new IllegalArgumentException("Unknown HTTP method: " + method.name());
   }
 
-  private HttpResponse signRequest(HttpRequestBase request){
+  private HttpResponse signRequest(HttpRequestBase request) {
     try {
       consumer.sign(request);
     } catch (OAuthMessageSignerException | OAuthCommunicationException |

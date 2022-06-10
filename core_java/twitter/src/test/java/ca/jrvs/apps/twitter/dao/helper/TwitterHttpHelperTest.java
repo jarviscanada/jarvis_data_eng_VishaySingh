@@ -1,7 +1,5 @@
 package ca.jrvs.apps.twitter.dao.helper;
 
-import static org.junit.Assert.*;
-
 import com.google.gdata.util.common.base.PercentEscaper;
 import java.net.URI;
 import org.apache.http.HttpResponse;
@@ -45,7 +43,8 @@ public class TwitterHttpHelperTest {
     HttpHelper twitterHelper = new TwitterHttpHelper(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN,
         TOKEN_SECRET);
     HttpResponse response = twitterHelper.httpGet(
-        new URI("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=VishaySingh35"));
+        new URI(
+            "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=VishaySingh35"));
     System.out.println(EntityUtils.toString(response.getEntity()));
   }
 }
