@@ -3,6 +3,7 @@ package ca.jrvs.apps.twitter.example;
 import ca.jrvs.apps.twitter.example.dto.Company;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.IOException;
@@ -41,6 +42,7 @@ public class JsonParser {
    */
   public static <T> T toObjectFromJson(String json, Class myClass) throws IOException {
     ObjectMapper m = new ObjectMapper();
+    m.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false); //ignore the robust tweet obj
     return (T) m.readValue(json, myClass);
   }
 
