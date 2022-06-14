@@ -18,7 +18,7 @@ public class TwitterDAOTest {
 
   private CrdDao dao;
   private static String id;
-  private static long time = System.currentTimeMillis();
+  private static final long time = System.currentTimeMillis();
 
   @Before
   public void setUp() throws Exception {

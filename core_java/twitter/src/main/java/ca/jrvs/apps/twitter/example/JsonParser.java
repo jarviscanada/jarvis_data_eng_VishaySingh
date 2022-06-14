@@ -42,7 +42,8 @@ public class JsonParser {
    */
   public static <T> T toObjectFromJson(String json, Class myClass) throws IOException {
     ObjectMapper m = new ObjectMapper();
-    m.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false); //ignore the robust tweet obj
+    m.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES,
+        false); //ignore the robust tweet obj
     return (T) m.readValue(json, myClass);
   }
 

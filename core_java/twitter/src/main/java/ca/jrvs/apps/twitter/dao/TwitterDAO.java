@@ -30,7 +30,7 @@ public class TwitterDAO implements CrdDao<Tweet, String> {
 
   private final HttpHelper httpHelper;
   private final JsonParser jsonParser;
-  private PercentEscaper percentEscaper = new PercentEscaper("", false);
+  private final PercentEscaper percentEscaper = new PercentEscaper("", false);
 
   @Autowired
   public TwitterDAO(HttpHelper httpHelper) {
@@ -76,7 +76,7 @@ public class TwitterDAO implements CrdDao<Tweet, String> {
     return new URI(uriBuilder.toString());
   }
 
-  private Tweet parseResponse(HttpResponse response, Integer expectedCode) {
+  public Tweet parseResponse(HttpResponse response, Integer expectedCode) {
     Tweet tweet = null;
 
     int status = response.getStatusLine().getStatusCode();
