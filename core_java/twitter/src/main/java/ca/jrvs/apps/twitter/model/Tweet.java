@@ -119,7 +119,7 @@ public class Tweet {
   }
 
   @JsonProperty("retweet_count")
-  public void setRetweetCount(int retweetCount) {
+  public void setRetweetCount(Integer retweetCount) {
     this.retweetCount = retweetCount;
   }
 
@@ -129,7 +129,7 @@ public class Tweet {
   }
 
   @JsonProperty("favorite_count")
-  public void setFavoriteCount(int favoriteCount) {
+  public void setFavoriteCount(Integer favoriteCount) {
     this.favoriteCount = favoriteCount;
   }
 

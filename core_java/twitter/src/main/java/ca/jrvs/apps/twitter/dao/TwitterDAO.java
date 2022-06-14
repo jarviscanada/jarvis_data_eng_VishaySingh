@@ -68,10 +68,10 @@ public class TwitterDAO implements CrdDao<Tweet, String> {
     if (coordinates != null) {
       uriBuilder.append(AMPERSAND);
       uriBuilder.append("lat=");
-      uriBuilder.append(coordinates.getCoordinates().get(0).toString());
+      uriBuilder.append(coordinates.getCoordinates().get(1).toString());
       uriBuilder.append(AMPERSAND);
       uriBuilder.append("long=");
-      uriBuilder.append(coordinates.getCoordinates().get(1).toString());
+      uriBuilder.append(coordinates.getCoordinates().get(0).toString());
     }
     return new URI(uriBuilder.toString());
   }
