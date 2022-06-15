@@ -16,15 +16,15 @@ public class Coordinates {
     return coordinates;
   }
 
-  public void setCoordinates(List<Double> coordinates) {
-    this.coordinates = coordinates;
+  public void setCoordinates(List<Double> coords) {
+    coordinates = coords;
   }
 
   public String getType() {
     return type;
   }
 
-  public void setType(String type) {
-    this.type = type;
+  public void setType(String type1) {
+    type = type1;
   }
 }

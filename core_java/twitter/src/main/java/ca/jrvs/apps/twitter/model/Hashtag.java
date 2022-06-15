@@ -16,15 +16,15 @@ public class Hashtag {
     return text;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setText(String txt) {
+    text = txt;
   }
 
   public List<Integer> getIndices() {
     return indices;
   }
 
-  public void setIndices(List<Integer> indices) {
-    this.indices = indices;
+  public void setIndices(List<Integer> indices1) {
+    indices = indices1;
   }
 }

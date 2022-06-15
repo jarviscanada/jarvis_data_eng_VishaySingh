@@ -40,8 +40,8 @@ public class UserMention {
   }
 
   @JsonProperty("name")
-  public void setName(String name) {
-    this.name = name;
+  public void setName(String name1) {
+    name = name1;
   }
 
   @JsonProperty("indices")
@@ -50,8 +50,8 @@ public class UserMention {
   }
 
   @JsonProperty("indices")
-  public void setIndices(List<Integer> indices) {
-    this.indices = indices;
+  public void setIndices(List<Integer> indices1) {
+    indices = indices1;
   }
 
   @JsonProperty("screen_name")
@@ -60,8 +60,8 @@ public class UserMention {
   }
 
   @JsonProperty("screen_name")
-  public void setScreenName(String screenName) {
-    this.screenName = screenName;
+  public void setScreenName(String screen) {
+    screenName = screen;
   }
 
   @JsonProperty("id")
@@ -70,8 +70,8 @@ public class UserMention {
   }
 
   @JsonProperty("id")
-  public void setId(BigInteger id) {
-    this.id = id;
+  public void setId(BigInteger id1) {
+    id = id1;
   }
 
   @JsonProperty("id_str")
@@ -80,7 +80,7 @@ public class UserMention {
   }
 
   @JsonProperty("id_str")
-  public void setIdStr(String idStr) {
-    this.idStr = idStr;
+  public void setIdStr(String idString) {
+    idStr = idString;
   }
 }

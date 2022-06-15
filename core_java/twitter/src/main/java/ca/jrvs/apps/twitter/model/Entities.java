@@ -27,8 +27,8 @@ public class Entities {
   }
 
   @JsonProperty("hashtags")
-  public void setHashtags(List<Hashtag> hashtags) {
-    this.hashtags = hashtags;
+  public void setHashtags(List<Hashtag> hashtag) {
+    hashtags = hashtag;
   }
 
   @JsonProperty("user_mentions")
@@ -37,7 +37,7 @@ public class Entities {
   }
 
   @JsonProperty("user_mentions")
-  public void setUserMentions(List<UserMention> userMentions) {
-    this.userMentions = userMentions;
+  public void setUserMentions(List<UserMention> userMention) {
+    userMentions = userMention;
   }
 }

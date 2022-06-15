@@ -42,10 +42,10 @@ public class Tweet {
   private Coordinates coordinates = null;
 
   @JsonProperty("retweet_count")
-  private int retweetCount;
+  private Integer retweetCount;
 
   @JsonProperty("favorite_count")
-  private int favoriteCount;
+  private Integer favoriteCount;
 
   @JsonProperty("favorited")
   private Boolean favorited;
@@ -59,8 +59,8 @@ public class Tweet {
   }
 
   @JsonProperty("created_at")
-  public void setCreated_at(String created_at) {
-    this.created_at = created_at;
+  public void setCreated_at(String created) {
+    created_at = created;
   }
 
   @JsonProperty("id")
@@ -79,8 +79,8 @@ public class Tweet {
   }
 
   @JsonProperty("id_str")
-  public void setIdStr(String idStr) {
-    this.idStr = idStr;
+  public void setIdStr(String idString) {
+    idStr = idString;
   }
 
   @JsonProperty("text")
@@ -89,8 +89,8 @@ public class Tweet {
   }
 
   @JsonProperty("text")
-  public void setText(String text) {
-    this.text = text;
+  public void setText(String txt) {
+    text = txt;
   }
 
   @JsonProperty("entities")
@@ -99,8 +99,8 @@ public class Tweet {
   }
 
   @JsonProperty("entities")
-  public void setEntities(Entities entities) {
-    this.entities = entities;
+  public void setEntities(Entities ent) {
+    entities = ent;
   }
 
   @JsonProperty("coordinates")
@@ -109,28 +109,28 @@ public class Tweet {
   }
 
   @JsonProperty("coordinates")
-  public void setCoordinates(Coordinates coordinates) {
-    this.coordinates = coordinates;
+  public void setCoordinates(Coordinates coords) {
+    coordinates = coords;
   }
 
   @JsonProperty("retweet_count")
-  public int getRetweetCount() {
+  public Integer getRetweetCount() {
     return retweetCount;
   }
 
   @JsonProperty("retweet_count")
-  public void setRetweetCount(Integer retweetCount) {
-    this.retweetCount = retweetCount;
+  public void setRetweetCount(Integer retweetCnt) {
+    retweetCount = retweetCnt;
   }
 
   @JsonProperty("favorite_count")
-  public int getFavoriteCount() {
+  public Integer getFavoriteCount() {
     return favoriteCount;
   }
 
   @JsonProperty("favorite_count")
-  public void setFavoriteCount(Integer favoriteCount) {
-    this.favoriteCount = favoriteCount;
+  public void setFavoriteCount(Integer favoriteCnt) {
+    favoriteCount = favoriteCnt;
   }
 
   @JsonProperty("favorited")
@@ -139,8 +139,8 @@ public class Tweet {
   }
 
   @JsonProperty("favorited")
-  public void setFavorited(Boolean favorited) {
-    this.favorited = favorited;
+  public void setFavorited(Boolean fav) {
+    favorited = fav;
   }
 
   @JsonProperty("retweeted")
@@ -149,7 +149,7 @@ public class Tweet {
   }
 
   @JsonProperty("retweeted")
-  public void setRetweeted(Boolean retweeted) {
-    this.retweeted = retweeted;
+  public void setRetweeted(Boolean retweet) {
+    retweeted = retweet;
   }
 }

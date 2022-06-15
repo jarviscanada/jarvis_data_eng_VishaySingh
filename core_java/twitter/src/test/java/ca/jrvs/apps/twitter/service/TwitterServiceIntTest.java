@@ -24,6 +24,7 @@ public class TwitterServiceIntTest {
   private static Double lat = 1d;
   private static Double lon = -1d;
   private static String id;
+  private static List<String> lst = new ArrayList<>();
 
   @Before
   public void setUp() throws Exception {
@@ -44,18 +45,19 @@ public class TwitterServiceIntTest {
   @Test
   public void postTweet() {
     //test valid tweet
+    resetTweetParameters();
     Tweet post = buildTweet();
     Tweet responseTweet = service.postTweet(post);
     assertEquals(text, responseTweet.getText());
     assertNotNull(responseTweet.getCoordinates());
     assertEquals(2, responseTweet.getCoordinates().getCoordinates().size());
-    System.out.println(responseTweet.getCoordinates().getCoordinates().toString());
     assertEquals(lat, responseTweet.getCoordinates().getCoordinates().get(1));
     assertEquals(lon, responseTweet.getCoordinates().getCoordinates().get(0));
 
     assertTrue(hashtag.contains(responseTweet.getEntities().getHashtags().get(0).getText()));
 
     id = responseTweet.getIdStr();
+    lst.add(id);
 
     //test invalid tweet
     Tweet type0 = buildInvalidTweet(0);
@@ -82,10 +84,56 @@ public class TwitterServiceIntTest {
 
   @Test
   public void showTweet() {
+    if (id == null){
+      resetTweetParameters();
+      Tweet post = buildTweet();
+      Tweet tweet = service.postTweet(post);
+      id = tweet.getIdStr();
+      lst.add(id);
+    }
+    Tweet responseTweet = service.showTweet(id, new String[]{"retweet_count"});
+
+    assertEquals(text, responseTweet.getText());
+    assertNotNull(responseTweet.getCoordinates());
+    assertEquals(2, responseTweet.getCoordinates().getCoordinates().size());
+    assertEquals(lat, responseTweet.getCoordinates().getCoordinates().get(1));
+    assertEquals(lon, responseTweet.getCoordinates().getCoordinates().get(0));
+
+    assertTrue(hashtag.contains(responseTweet.getEntities().getHashtags().get(0).getText()));
+
+    assertNull(responseTweet.getRetweetCount()); //check fields worked
+
+    // Test fail case (fields)
+    try {
+      service.showTweet(id, new String[]{"random garbage"});
+    } catch (IllegalArgumentException e) {
+      assertTrue(true);
+    }
+
+    // Test fail case (id)
+    try {
+      service.showTweet("11.2", new String[]{});
+    } catch (IllegalArgumentException e) {
+      assertTrue(true);
+      return;
+    }
+    fail();
   }
 
   @Test
   public void deleteTweets() {
+    if (id == null){
+      resetTweetParameters();
+      Tweet post = buildTweet();
+      Tweet tweet = service.postTweet(post);
+      id = tweet.getIdStr();
+      lst.add(id);
+    }
+    List<Tweet> tweets = service.deleteTweets(lst.toArray(new String[0]));
+    assertNotNull(tweets);
+    for(Tweet tweet : tweets){
+      assertTrue(lst.contains(tweet.getIdStr()));
+    }
   }
 
   private Tweet buildTweet() {
