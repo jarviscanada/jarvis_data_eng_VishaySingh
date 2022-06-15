@@ -24,6 +24,19 @@ public class TweetUtil {
     return post;
   }
 
+  public static Tweet buildTweet(String txt, Double lat, Double lon) {
+    resetTweetParameters();
+    Coordinates coordinates = new Coordinates();
+    List<Double> doubleList = new ArrayList<>();
+    doubleList.add(lon);
+    doubleList.add(lat);
+    coordinates.setCoordinates(doubleList);
+    Tweet post = new Tweet();
+    post.setText(txt);
+    post.setCoordinates(coordinates);
+    return post;
+  }
+
   public static Tweet buildInvalidTweet(int type) {
     time = System.currentTimeMillis();
     hashtag = "#testing #twitterapi";
