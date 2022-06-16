@@ -58,14 +58,21 @@ public class TwitterController implements Controller{
    */
   @Override
   public Tweet showTweet(String[] args) {
-    if (args.length != 3 || args.length != 2){
+    if (args.length < 2 || args.length > 3){
       usageShowError();
     }
 
     String id = args[1];
-    String field = args[2];
-    String[] fields = field.split(COMMA);
-    if (fields.length == 0 || StringUtil.isEmpty(id)){
+    String field = "";
+    String[] fields = {};
+    if (args.length == 3){
+      field = args[2];
+      if (StringUtil.isEmpty(field)){
+        usageShowError();
+      }
+      fields = field.split(COMMA);
+    }
+    if (StringUtil.isEmpty(id)){
       usageShowError();
     }
 

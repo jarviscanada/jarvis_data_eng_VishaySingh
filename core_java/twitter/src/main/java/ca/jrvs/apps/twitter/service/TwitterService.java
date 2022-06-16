@@ -2,6 +2,7 @@ package ca.jrvs.apps.twitter.service;
 
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.util.StringUtil;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -119,6 +120,9 @@ public class TwitterService implements Service{
   }
 
   private void validateId(String id){
+    if (StringUtil.isEmpty(id)) {
+      throw new IllegalArgumentException();
+    }
     try {
       new BigInteger(id);
     } catch (NumberFormatException e) {
