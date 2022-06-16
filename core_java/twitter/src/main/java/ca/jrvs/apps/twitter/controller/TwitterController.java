@@ -6,12 +6,12 @@ import ca.jrvs.apps.twitter.util.StringUtil;
 import ca.jrvs.apps.twitter.util.TweetUtil;
 import java.util.List;
 
-public class TwitterController implements Controller{
+public class TwitterController implements Controller {
 
   private static final String COORD_SEP = ":";
   private static final String COMMA = ",";
 
-  private Service service;
+  private final Service service;
 
   public TwitterController(Service service) {
     this.service = service;
@@ -26,14 +26,14 @@ public class TwitterController implements Controller{
    */
   @Override
   public Tweet postTweet(String[] args) {
-    if (args.length != 3){
+    if (args.length != 3) {
       usagePostError();
     }
 
     String text = args[1];
     String coords = args[2];
     String[] coordArray = coords.split(COORD_SEP);
-    if (coordArray.length != 2 || StringUtil.isEmpty(text)){
+    if (coordArray.length != 2 || StringUtil.isEmpty(text)) {
       usagePostError();
     }
     Double lat = null;
@@ -58,21 +58,21 @@ public class TwitterController implements Controller{
    */
   @Override
   public Tweet showTweet(String[] args) {
-    if (args.length < 2 || args.length > 3){
+    if (args.length < 2 || args.length > 3) {
       usageShowError();
     }
 
     String id = args[1];
     String field = "";
     String[] fields = {};
-    if (args.length == 3){
+    if (args.length == 3) {
       field = args[2];
-      if (StringUtil.isEmpty(field)){
+      if (StringUtil.isEmpty(field)) {
         usageShowError();
       }
       fields = field.split(COMMA);
     }
-    if (StringUtil.isEmpty(id)){
+    if (StringUtil.isEmpty(id)) {
       usageShowError();
     }
 
@@ -88,7 +88,7 @@ public class TwitterController implements Controller{
    */
   @Override
   public List<Tweet> deleteTweet(String[] args) {
-    if (args.length != 2){
+    if (args.length != 2) {
       usageDeleteError();
     }
 
@@ -100,19 +100,19 @@ public class TwitterController implements Controller{
     return service.deleteTweets(ids);
   }
 
-  private void usagePostError(){
+  private void usagePostError() {
     throw new IllegalArgumentException(
         "USAGE: TwitterCLIApp post \"text\" \"latitude:longitude\""
     );
   }
 
-  private void usageShowError(){
+  private void usageShowError() {
     throw new IllegalArgumentException(
         "USAGE: TwitterApp show tweet_id \"field1,fields2,...\""
     );
   }
 
-  private void usageDeleteError(){
+  private void usageDeleteError() {
     throw new IllegalArgumentException(
         "USAGE: TwitterApp delete \"id1,id2,...\""
     );

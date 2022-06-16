@@ -7,9 +7,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TwitterService implements Service{
+public class TwitterService implements Service {
 
-  private CrdDao dao;
+  private final CrdDao dao;
 
   public TwitterService(CrdDao dao) {
     this.dao = dao;
@@ -48,7 +48,7 @@ public class TwitterService implements Service{
     Tweet tweet = (Tweet) dao.findById(id);
 
     // Modify Tweet obj & validate fields
-    for (String field : fields){
+    for (String field : fields) {
       switch (field) {
         case "created_at":
           tweet.setCreated_at(null);
@@ -99,7 +99,7 @@ public class TwitterService implements Service{
   public List<Tweet> deleteTweets(String[] ids) {
     List<Tweet> lst = new ArrayList<>();
 
-    for (String id : ids){
+    for (String id : ids) {
       // Business logic
       validateId(id);
 
@@ -114,12 +114,13 @@ public class TwitterService implements Service{
     //check txt len and coords range
     Double lon = tweet.getCoordinates().getCoordinates().get(0);
     Double lat = tweet.getCoordinates().getCoordinates().get(1);
-    if (tweet.getText().length() > 140 || lat > 90.0 || lat < -90.0 || lon > 180.0 || lon < -180.0){
+    if (tweet.getText().length() > 140 || lat > 90.0 || lat < -90.0 || lon > 180.0
+        || lon < -180.0) {
       throw new IllegalArgumentException();
     }
   }
 
-  private void validateId(String id){
+  private void validateId(String id) {
     if (StringUtil.isEmpty(id)) {
       throw new IllegalArgumentException();
     }
@@ -130,7 +131,7 @@ public class TwitterService implements Service{
     }
   }
 
-  private void validateFields(String[] fields){
+  private void validateFields(String[] fields) {
     if (fields == null) {
       throw new IllegalArgumentException();
     }

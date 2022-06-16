@@ -1,6 +1,5 @@
 package ca.jrvs.apps.twitter.service;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -18,13 +17,14 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TwitterServiceUnitTest {
+
   @Mock
   CrdDao dao;
 
   @InjectMocks
   TwitterService service;
   private static String id;
-  private static List<String> lst = new ArrayList<>();
+  private static final List<String> lst = new ArrayList<>();
 
   @Before
   public void setUp() throws Exception {
@@ -42,7 +42,7 @@ public class TwitterServiceUnitTest {
   public void showTweet() {
     when(dao.create(any())).thenReturn(new Tweet());
     //when(dao.findById(any())).thenReturn(new Tweet());
-    if (id == null){
+    if (id == null) {
       TweetUtil.resetTweetParameters();
       id = service.postTweet(TweetUtil.buildTweet()).getIdStr();
       lst.add(id);
@@ -56,7 +56,7 @@ public class TwitterServiceUnitTest {
   public void deleteTweets() {
     when(dao.create(any())).thenReturn(new Tweet());
     //when(dao.deleteById(any())).thenReturn(new Tweet());
-    if (id == null){
+    if (id == null) {
       TweetUtil.resetTweetParameters();
       id = service.postTweet(TweetUtil.buildTweet()).getIdStr();
       lst.add(id);

@@ -1,6 +1,10 @@
 package ca.jrvs.apps.twitter.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.dao.TwitterDAO;
@@ -15,6 +19,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TwitterServiceIntTest {
+
   private CrdDao dao;
   private Service service;
   private static long time = System.currentTimeMillis();
@@ -24,7 +29,7 @@ public class TwitterServiceIntTest {
   private static Double lat = 1d;
   private static Double lon = -1d;
   private static String id;
-  private static List<String> lst = new ArrayList<>();
+  private static final List<String> lst = new ArrayList<>();
 
   @Before
   public void setUp() throws Exception {
@@ -67,24 +72,24 @@ public class TwitterServiceIntTest {
     Tweet type2 = buildInvalidTweet(2);
     try {
       service.postTweet(type0);
-    } catch (IllegalArgumentException e){
+    } catch (IllegalArgumentException e) {
       assertTrue(true);
     }
     try {
       service.postTweet(type1);
-    } catch (IllegalArgumentException e){
+    } catch (IllegalArgumentException e) {
       assertTrue(true);
     }
     try {
       service.postTweet(type2);
-    } catch (IllegalArgumentException e){
+    } catch (IllegalArgumentException e) {
       assertTrue(true);
     }
   }
 
   @Test
   public void showTweet() {
-    if (id == null){
+    if (id == null) {
       resetTweetParameters();
       Tweet post = buildTweet();
       Tweet tweet = service.postTweet(post);
@@ -122,7 +127,7 @@ public class TwitterServiceIntTest {
 
   @Test
   public void deleteTweets() {
-    if (id == null){
+    if (id == null) {
       resetTweetParameters();
       Tweet post = buildTweet();
       Tweet tweet = service.postTweet(post);
@@ -131,7 +136,7 @@ public class TwitterServiceIntTest {
     }
     List<Tweet> tweets = service.deleteTweets(lst.toArray(new String[0]));
     assertNotNull(tweets);
-    for(Tweet tweet : tweets){
+    for (Tweet tweet : tweets) {
       assertTrue(lst.contains(tweet.getIdStr()));
     }
   }
@@ -151,13 +156,13 @@ public class TwitterServiceIntTest {
   private Tweet buildInvalidTweet(int type) {
     time = System.currentTimeMillis();
     hashtag = "#testing #twitterapi";
-    if (type == 0){
+    if (type == 0) {
       text = "@Iostinsanity get better soon " + hashtag + " created at: " + time + "ms"
-      + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-      + "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-      + "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
-      + "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
-      + "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+          + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          + "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          + "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          + "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+          + "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
     } else if (type == 1) {
       lat = 91d;
     } else {

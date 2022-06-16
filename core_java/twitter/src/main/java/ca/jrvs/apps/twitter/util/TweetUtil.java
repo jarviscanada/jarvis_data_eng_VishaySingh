@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TweetUtil {
+
   private static long time = System.currentTimeMillis();
   private static String hashtag = "#testing #twitterapi";
   private static String text =
       "@Iostinsanity get better soon " + hashtag + " created at: " + time + "ms";
   private static Double lat = 1d;
   private static Double lon = -1d;
+
   public static Tweet buildTweet() {
     Coordinates coordinates = new Coordinates();
     List<Double> doubleList = new ArrayList<>();
@@ -40,7 +42,7 @@ public class TweetUtil {
   public static Tweet buildInvalidTweet(int type) {
     time = System.currentTimeMillis();
     hashtag = "#testing #twitterapi";
-    if (type == 0){
+    if (type == 0) {
       text = "@Iostinsanity get better soon " + hashtag + " created at: " + time + "ms"
           + "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           + "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
