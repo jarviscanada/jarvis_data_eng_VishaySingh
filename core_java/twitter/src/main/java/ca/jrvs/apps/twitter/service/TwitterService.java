@@ -6,11 +6,14 @@ import ca.jrvs.apps.twitter.util.StringUtil;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
+@org.springframework.stereotype.Service
 public class TwitterService implements Service {
 
   private final CrdDao dao;
 
+  @Autowired
   public TwitterService(CrdDao dao) {
     this.dao = dao;
   }
