@@ -27,7 +27,13 @@ public class TwitterHttpHelper implements HttpHelper {
   private final OAuthConsumer consumer;
   private final HttpClient httpClient;
 
-  @Autowired
+  /**
+   * Setup dependencies using secrets
+   * @param consumerKey
+   * @param consumerSecret
+   * @param accessToken
+   * @param tokenSecret
+   */
   public TwitterHttpHelper(String consumerKey, String consumerSecret, String accessToken,
       String tokenSecret) {
     consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
