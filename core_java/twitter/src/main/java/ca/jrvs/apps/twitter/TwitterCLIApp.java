@@ -15,7 +15,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class TwitterCLIApp {
 
   public static final String usage = "USAGE: TwitterCLIApp post|show|delete [options]";
-  private Controller controller;
+  private final Controller controller;
 
   public TwitterCLIApp(Controller controller) {
     this.controller = controller;
@@ -37,7 +37,7 @@ public class TwitterCLIApp {
   }
 
   public void run(String[] args) {
-    if (args.length < 2){
+    if (args.length < 2) {
       throw new IllegalArgumentException(usage);
     }
     switch (args[0].toLowerCase()) {

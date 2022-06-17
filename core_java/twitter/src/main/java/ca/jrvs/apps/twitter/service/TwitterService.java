@@ -102,11 +102,12 @@ public class TwitterService implements Service {
     for (String id : ids) {
       // Business logic
       validateId(id);
+    }
 
+    for (String id : ids) {
       // Delete and add to lst
       lst.add((Tweet) dao.deleteById(id));
     }
-
     return lst;
   }
 
