@@ -10,11 +10,11 @@ playing video games, or learning guitar.
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, MongoDB, Neo4J, Agile/Scrum, Git, Python, C, IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.), REST API, Docker, DAO design pattern, CRUD, JDBC, Regular Expressions
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, MongoDB, Neo4J, Agile/Scrum, Git, Python, C, IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.), REST API, Docker, DAO design pattern, CRUD, JDBC, Regular Expressions, MVC architecture
 
 **Competent:** JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Repository design pattern, JUnit, Maven, Lambda Expressions, Stream API
 
-**Familiar:** Racket & Haskell, R, Assembly, HTML, C++
+**Familiar:** Racket & Haskell, R, Assembly, HTML, C++, Spring/SpringBoot
 
 ## Jarvis Projects
 
@@ -28,11 +28,11 @@ for the entire cluster.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/core_java)]:
       
-  - Twitter App: In progress.
+  - Twitter App: Designed, implemented, tested, and deployed a backend Java app that can CRUD tweets using Twitter's REST API. Common design patterns & frameworks were leveraged to design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using JUnit and Mockito, resulted in a well-tested app published on DockerHub.
   - JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD persisted sales data, resulting in atomic business-related queries.
   - Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively traverses file paths resulting in an output file with all matching strings.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/springboot)]: Not started.
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/springboot)]: In progress.
 
 **Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/python_data_anlytics)]: Not started.
 
