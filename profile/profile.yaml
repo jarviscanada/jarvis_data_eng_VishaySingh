@@ -34,6 +34,7 @@ skills:
     - CRUD
     - JDBC
     - Regular Expressions
+    - MVC architecture
   # At least 5 skills
   competent:
     - JavaScript
@@ -52,6 +53,7 @@ skills:
     - Assembly
     - HTML
     - C++
+    - Spring/SpringBoot
 
 # List of Jarvis projects
 jarvis_projects:
@@ -66,7 +68,11 @@ jarvis_projects:
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
-      - "Twitter App: In progress."
+      - "Twitter App: Designed, implemented, tested, and deployed a backend Java app that can CRUD 
+      tweets using Twitter's REST API. Common design patterns & frameworks were leveraged to 
+      design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented
+      using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using
+      JUnit and Mockito, resulted in a well-tested app published on DockerHub."
       - "JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, 
       the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD
       persisted sales data, resulting in atomic business-related queries."
@@ -75,7 +81,7 @@ jarvis_projects:
       traverses file paths resulting in an output file with all matching strings."
   - name: "Springboot App"
     git_url: "/springboot"
-    description: "Not started."
+    description: "In progress."
   - name: "Python Data Analytics"
     git_url: "/python_data_anlytics"
     description: "Not started."

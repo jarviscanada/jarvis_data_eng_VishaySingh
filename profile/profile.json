@@ -39,7 +39,7 @@
     },
     {
       "description": [
-        "Twitter App: In progress.",
+        "Twitter App: Designed, implemented, tested, and deployed a backend Java app that can CRUD tweets using Twitter's REST API. Common design patterns \u0026 frameworks were leveraged to design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using JUnit and Mockito, resulted in a well-tested app published on DockerHub.",
         "JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD persisted sales data, resulting in atomic business-related queries.",
         "Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively traverses file paths resulting in an output file with all matching strings."
       ],
@@ -47,7 +47,7 @@
       "name": "Core Java Apps"
     },
     {
-      "description": "Not started.",
+      "description": "In progress.",
       "git_url": "/springboot",
       "name": "Springboot App"
     },
@@ -115,7 +115,8 @@
       "R",
       "Assembly",
       "HTML",
-      "C++"
+      "C++",
+      "Spring/SpringBoot"
     ],
     "proficient": [
       "Java",
@@ -133,7 +134,8 @@
       "DAO design pattern",
       "CRUD",
       "JDBC",
-      "Regular Expressions"
+      "Regular Expressions",
+      "MVC architecture"
     ]
   },
   "summary": "Hello there! My name is Vishay Singh and I graduated from the University of Toronto with an Honours \nBachelor's Degree of Science, majoring in Computer Science and French Studies. Since a young age, I've\nbeen fascinated by what technology can do to solve real world problems, which is exactly what I want \nto do in the software industry. In fact, learning new things is a passion of mine, so software provides \nthe perfect avenue to continually challenge myself. In my spare time, I'm either building computers, \nplaying video games, or learning guitar.\n"
