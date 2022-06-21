@@ -1,12 +1,12 @@
 package ca.jrvs.practice.codingChallenge;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 public class EvenOddTest {
 
-  private EvenOdd evenOdd = new EvenOdd();
+  private final EvenOdd evenOdd = new EvenOdd();
 
   @Test
   public void evenOdd() {
