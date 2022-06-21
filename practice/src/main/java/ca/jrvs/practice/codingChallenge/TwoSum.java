@@ -43,18 +43,18 @@ public class TwoSum {
     Arrays.sort(numCopy);
     int i, j;
     i = 0;
-    j = 1;
-    while (j < numCopy.length) {
-      if (numCopy[i] + numCopy[j] == target) {
+    j = numCopy.length - 1;
+    while (i < j) {
+      int curr = numCopy[i] + numCopy[j];
+      if (curr == target) {
         return new int[]{map.get(numCopy[i]), map.get(numCopy[j])};
       }
-      if (i + 1 == j || target - numCopy[j] > 0) {
-        j++;
-      } else {
+      if (curr < target) {
         i++;
+      } else if (curr > target) {
+        j--;
       }
     }
-
     return new int[]{0, 0};
   }
 
