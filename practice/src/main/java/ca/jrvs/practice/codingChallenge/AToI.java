@@ -1,55 +1,59 @@
 package ca.jrvs.practice.codingChallenge;
 
+import static java.lang.Math.pow;
+
 import java.math.BigInteger;
 
 /**
  * https://www.notion.so/jarvisdev/String-to-Integer-atoi-1e09f7c0c1d744a0a717337c2d1eabf1
+ * <p>
+ * Big-O Analysis: O(n) time worst-case (O(2n) = O(n)). O(1) space.
  */
 public class AToI {
 
   public int myAtoi(String s) {
-    s = s.trim();
-    if (s.equals("")){
-      return 0;
-    }
-    StringBuilder builder = new StringBuilder();
-    int len = s.length();
+    int sign = 1;
+    int result = 0;
     int i = 0;
-    int pos = 1;
-    boolean seenInt = false;
+    int n = s.length();
+    int power = 0;
 
-    while(i < len){
-      char curr = s.charAt(i);
-      if (i == 0 && curr == '-'){
-        pos = pos * -1;
-      } else if (i == 0 && curr == '+') {
-        //do nothing
-      } else if (i == 0 && !seenInt && !Character.isDigit(curr)) {
-        return 0;
-      } else if (!seenInt && (curr == '-' || curr == '+')) {
-        return 0;
-      } else if (seenInt && !Character.isDigit(s.charAt(i))) {
-        i = len;
-      } else if (Character.isDigit(s.charAt(i))) {
-        seenInt = true;
-        builder.append(s.charAt(i));
-      }
+    //Skip leading whitespace
+    while (i < n && s.charAt(i) == ' ') {
       i++;
     }
-    if (builder.toString().equals("")){
+
+    if (i == n) {
       return 0;
     }
-    try {
-      BigInteger bigInt = new BigInteger(builder.toString()).multiply(BigInteger.valueOf(pos));
-      if (bigInt.compareTo(new BigInteger(String.valueOf(Integer.MAX_VALUE))) > 0){
+
+    if (s.charAt(i) == '-') {
+      sign = -1;
+      i++;
+    } else if (s.charAt(i) == '+') {
+      i++;
+    }
+
+    //Get correct digit count
+    while (power + i + 1 < n && Character.isDigit(s.charAt(power + i + 1))) {
+      power++;
+    }
+
+    while (i < n && Character.isDigit(s.charAt(i))) {
+      BigInteger curr = new BigInteger(String.valueOf(s.charAt(i)));
+      curr = curr.multiply(new BigInteger(String.valueOf((int) pow(10, power)))).add(new BigInteger(
+          String.valueOf(result)));
+      if (curr.compareTo(new BigInteger(String.valueOf(Integer.MAX_VALUE))) > 0) {
         return Integer.MAX_VALUE;
       }
-      if (bigInt.compareTo(new BigInteger(String.valueOf(Integer.MIN_VALUE))) < 0) {
+      if (curr.compareTo(new BigInteger(String.valueOf(Integer.MIN_VALUE))) < 0) {
         return Integer.MIN_VALUE;
       }
-      return bigInt.intValue();
-    } catch (NumberFormatException e) {
-      throw new IllegalArgumentException(e);
+      result = curr.intValue();
+      power--;
+      i++;
     }
+
+    return sign * result;
   }
 }
