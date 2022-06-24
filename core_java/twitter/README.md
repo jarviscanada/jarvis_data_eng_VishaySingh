@@ -62,7 +62,6 @@ The Tweet model is based on the model provided by Twitter’s REST API v1.0a, ho
 This project uses SpringBoot to manage dependencies. In the `spring` package, there is `TwitterCLIBean`, `TwitterCLIComponentScan`, and `TwitterCLISpringBoot`. The two former classes were used to implement `@Beans` and `@ComponentScan` approaches to dependency management respectively, however ultimately the TwitterCLIApp was configured using the `TwitterCLISpringBoot` class as the `@SpringBootApplication`. This class automatically configures Spring, and it also implements the `CommandLineRunner` interface, which is how the app is run with the command line arguments mentioned in the `Quick Start` section.
 
 # Testing
-How did you test you app using Junit and mockito?
 The app was tested using both JUnit and Mockito. JUnit alone was used for integration testing for all major components (`Controller`, `Service`, etc.). Mockito was used in conjunction with JUnit to test the behaviour of those same major classes in unit testing. Testing and implementation was done in the “bottom-up” approach, which also helped to bolster the amount of bugs found (i.e. ironing-out bugs from the bottom up proves to help for later tests that depend on those lower level classes).
 
 ## Deployment
