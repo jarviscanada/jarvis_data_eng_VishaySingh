@@ -37,7 +37,7 @@ public class MarketDataDaoTest {
 
     //fail case
     try {
-      dao.findAllById(Arrays.asList("AAPL", "AYYMD"));
+      dao.findAllById(Arrays.asList("AAPL", "FB2"));
       fail();
     } catch (IllegalArgumentException e) {
       assertTrue(true);
