@@ -7,6 +7,7 @@ public class MiddleNode {
 
   /**
    * Big-O Analysis: O(n) time worst case. O(1) space worst case.
+   *
    * @param head
    * @return
    */
