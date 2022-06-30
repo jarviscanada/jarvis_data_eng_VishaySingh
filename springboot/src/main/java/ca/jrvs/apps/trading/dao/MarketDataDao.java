@@ -3,6 +3,7 @@ package ca.jrvs.apps.trading.dao;
 import ca.jrvs.apps.trading.domain.IexQuote;
 import ca.jrvs.apps.trading.model.config.MarketDataConfig;
 import ca.jrvs.apps.trading.util.JsonParser;
+import com.google.common.collect.Iterables;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -118,7 +119,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
 
   @Override
   public Iterable<IexQuote> findAll() {
-    return null;
+    throw new UnsupportedOperationException("Not implemented");
   }
 
   @Override
@@ -144,8 +145,11 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     }
 
     //Add all quotes to list
-    return traverseJsonObject(IexQuotesJson, quotes);
-//    if (quotes.size() != iterable.stream)
+    quotes = traverseJsonObject(IexQuotesJson, quotes);
+    if (Iterables.size(iterable) > quotes.size()) {
+      throw new IllegalArgumentException("Invalid ticker");
+    }
+    return quotes;
   }
 
   private static List<IexQuote> traverseJsonObject(JSONObject jsonObject, List<IexQuote> quotes) {
