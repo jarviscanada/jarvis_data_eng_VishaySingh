@@ -4,7 +4,6 @@ import ca.jrvs.apps.trading.service.QuoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +20,8 @@ public class Application implements CommandLineRunner {
 
   private final Logger logger = LoggerFactory.getLogger(Application.class);
 
-  @Value("${app.init.dailyList}")
-  private String[] initDailyList;
+//  @Value("${app.init.dailyList}")
+//  private String[] initDailyList;
 
   @Autowired
   private QuoteService quoteService;
@@ -34,6 +33,9 @@ public class Application implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-
+    if (args.length < 2) {
+      throw new IllegalArgumentException("Invalid Arguments");
+    }
+    quoteService.findIexQuoteByTicker(args[1]);
   }
 }
