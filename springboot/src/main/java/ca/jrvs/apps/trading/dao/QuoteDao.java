@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataRetrievalFailureException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -113,7 +115,19 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    */
   @Override
   public Optional<Quote> findById(String s) {
-    return Optional.empty();
+    if (s.equals("")) {
+      throw new IllegalArgumentException("ID can't be null");
+    }
+    Quote quote = null;
+    String selectSql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME + " =?";
+
+    try {
+      quote = jdbcTemplate.queryForObject(selectSql,
+          BeanPropertyRowMapper.newInstance(Quote.class), s);
+    } catch (EmptyResultDataAccessException e) {
+      logger.debug("Can't find ticker id:" + s, e);
+    }
+    return Optional.ofNullable(quote);
   }
 
   /**
@@ -125,7 +139,11 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    */
   @Override
   public boolean existsById(String s) {
-    return false;
+    if (s.equals("")) {
+      return false;
+    }
+    Optional<Quote> quote = findById(s);
+    return quote.isPresent();
   }
 
   /**
@@ -134,8 +152,11 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    * @return all entities
    */
   @Override
-  public Iterable<Quote> findAll() {
-    return null;
+  public List<Quote> findAll() {
+    String selectSql = "SELECT * FROM " + TABLE_NAME;
+    List<Quote> quotes = jdbcTemplate
+        .query(selectSql, BeanPropertyRowMapper.newInstance(Quote.class));
+    return quotes;
   }
 
   /**
@@ -156,7 +177,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    */
   @Override
   public long count() {
-    return 0;
+    return findAll().size();
   }
 
   /**
@@ -167,7 +188,11 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    */
   @Override
   public void deleteById(String s) {
-
+    if (s.equals("")) {
+      throw new IllegalArgumentException("ID can't be null");
+    }
+    String deleteSql = "DELETE FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME + " =?";
+    jdbcTemplate.update(deleteSql, s);
   }
 
   /**
@@ -197,6 +222,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    */
   @Override
   public void deleteAll() {
-
+    String deleteSql = "TRUNCATE " + TABLE_NAME;
+    jdbcTemplate.update(deleteSql);
   }
 }

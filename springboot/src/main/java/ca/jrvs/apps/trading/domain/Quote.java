@@ -1,5 +1,8 @@
 package ca.jrvs.apps.trading.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Quote implements Entity<String> {
 
   private String ticker;

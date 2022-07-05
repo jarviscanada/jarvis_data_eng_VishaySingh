@@ -1,5 +1,6 @@
 package ca.jrvs.apps.trading;
 
+import ca.jrvs.apps.trading.domain.Quote;
 import ca.jrvs.apps.trading.model.config.MarketDataConfig;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -9,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 @Configuration
 public class AppConfig {
@@ -49,5 +52,20 @@ public class AppConfig {
     basicDataSource.setUsername(user);
     basicDataSource.setPassword(password);
     return basicDataSource;
+  }
+
+  @Bean
+  public JdbcTemplate jdbcTemplate(DataSource dataSource) {
+    return new JdbcTemplate(dataSource);
+  }
+
+  @Bean
+  public SimpleJdbcInsert simpleJdbcInsert(DataSource dataSource) {
+    return new SimpleJdbcInsert(dataSource);
+  }
+
+  @Bean
+  public Quote quote() {
+    return new Quote();
   }
 }
