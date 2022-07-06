@@ -5,12 +5,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Quote implements Entity<String> {
 
-  private String ticker;
-  private Double lastPrice;
-  private Double bidPrice;
-  private Integer bidSize;
-  private Double askPrice;
-  private Integer askSize;
+  private String ticker; //symbol.lower
+  private Double lastPrice; //latestPrice (if not null, else use iexClose)
+  private Double bidPrice; //iexBidPrice
+  private Integer bidSize; //iexBidSize
+  private Double askPrice; //iexAskPrice
+  private Integer askSize; //iexAskSize
 
   @Override
   public String getId() {
