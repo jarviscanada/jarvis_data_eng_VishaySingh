@@ -4,6 +4,7 @@ import ca.jrvs.apps.trading.domain.Quote;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,9 @@ public class QuoteDao implements CrudRepository<Quote, String> {
   private final SimpleJdbcInsert simpleJdbcInsert;
 
   @Autowired
-  public QuoteDao(JdbcTemplate jdbcTemplate, SimpleJdbcInsert simpleJdbcInsert) {
-    this.jdbcTemplate = jdbcTemplate;
-    this.simpleJdbcInsert = simpleJdbcInsert;
+  public QuoteDao(DataSource dataSource) {
+    this.jdbcTemplate = new JdbcTemplate(dataSource);
+    this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME);
   }
 
   /**
@@ -222,7 +223,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    */
   @Override
   public void deleteAll() {
-    String deleteSql = "TRUNCATE " + TABLE_NAME;
+    String deleteSql = "TRUNCATE " + TABLE_NAME + " CASCADE";
     jdbcTemplate.update(deleteSql);
   }
 }

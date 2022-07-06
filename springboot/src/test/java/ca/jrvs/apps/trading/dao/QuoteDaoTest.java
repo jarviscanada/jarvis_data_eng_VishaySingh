@@ -34,6 +34,7 @@ public class QuoteDaoTest {
     savedQuote.setBidPrice(10.2d);
     savedQuote.setBidSize(10);
     savedQuote.setId("aapl");
+    savedQuote.setTicker("aapl");
     savedQuote.setLastPrice(10.1d);
     quoteDao.save(savedQuote);
   }
@@ -77,7 +78,11 @@ public class QuoteDaoTest {
   @Test
   public void findById() {
     Quote quote = quoteDao.findById(savedQuote.getId()).get();
-    assertEquals(savedQuote, quote);
+    assertEquals(savedQuote.getId(), quote.getId());
+    assertEquals(savedQuote.getAskPrice(), quote.getAskPrice());
+    assertEquals(savedQuote.getAskSize(), quote.getAskSize());
+    assertEquals(savedQuote.getBidPrice(), quote.getBidPrice());
+    assertEquals(savedQuote.getLastPrice(), quote.getLastPrice());
   }
 
   @Test
