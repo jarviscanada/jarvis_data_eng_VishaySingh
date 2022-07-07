@@ -94,7 +94,7 @@ public class QuoteService {
    * @param ticker
    * @return
    */
-  private Quote saveQuote(String ticker) {
+  public Quote saveQuote(String ticker) {
     return this.saveQuote(QuoteService.buildQuoteFromIexQuote(this.findIexQuoteByTicker(ticker)));
   }
 

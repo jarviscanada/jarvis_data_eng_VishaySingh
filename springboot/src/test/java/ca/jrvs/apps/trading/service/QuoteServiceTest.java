@@ -86,6 +86,13 @@ public class QuoteServiceTest {
   }
 
   @Test
+  public void saveQuoteByTicker() {
+    assertEquals(0, quoteDao.count());
+    quoteService.saveQuote("aapl");
+    assertEquals(1, quoteDao.count());
+  }
+
+  @Test
   public void findAllQuotes() {
     assertEquals(0, quoteDao.count());
     Quote savedQuote = new Quote();
