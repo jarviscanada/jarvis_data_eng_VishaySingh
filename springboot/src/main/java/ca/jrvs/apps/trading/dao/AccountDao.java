@@ -1,13 +1,16 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.domain.Account;
+import java.util.stream.StreamSupport;
 import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AccountDao extends JdbcCrudDao<Account> {
 
   private static final Logger logger = LoggerFactory.getLogger(AccountDao.class);
@@ -58,7 +61,19 @@ public class AccountDao extends JdbcCrudDao<Account> {
    */
   @Override
   public int updateOne(Account entity) {
-    return 0;
+    String update_sql = "UPDATE " + getTableName() + " SET amount=?, trader_id=? WHERE " + ID_COLUMN
+        + "=?";
+    return jdbcTemplate.update(update_sql, makeUpdateValues(entity));
+  }
+
+  /**
+   * Helper that makes SQL update values in objects
+   *
+   * @param entity
+   * @return
+   */
+  private Object[] makeUpdateValues(Account entity) {
+    return new Object[]{entity.getAmount(), entity.getId(), entity.getTraderId()};
   }
 
   /**
@@ -69,7 +84,11 @@ public class AccountDao extends JdbcCrudDao<Account> {
    */
   @Override
   public void delete(Account entity) {
-
+    if (!this.existsById(entity.getId())) {
+      throw new IllegalArgumentException("ID not found");
+    }
+    String deleteSql = "DELETE FROM " + getTableName() + " WHERE " + getIdColumnName() + " =?";
+    jdbcTemplate.update(deleteSql, entity.getId());
   }
 
   /**
@@ -80,6 +99,6 @@ public class AccountDao extends JdbcCrudDao<Account> {
    */
   @Override
   public void deleteAll(Iterable<? extends Account> entities) {
-
+    StreamSupport.stream(entities.spliterator(), false).forEach(this::delete);
   }
 }
