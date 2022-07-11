@@ -139,7 +139,8 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
   @Override
   public List<T> findAllById(Iterable<Integer> ids) {
     return StreamSupport.stream(ids.spliterator(), false)
-        .map((x) -> findById(x).get())
+        .filter((x) -> this.findById(x).isPresent())
+        .map((x) -> this.findById(x).get())
         .collect(Collectors.toList());
   }
 

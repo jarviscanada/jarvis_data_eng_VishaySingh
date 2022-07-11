@@ -1,11 +1,17 @@
 package ca.jrvs.apps.trading.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.domain.Trader;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import org.assertj.core.util.Lists;
 import org.junit.After;
 import org.junit.Before;
@@ -30,7 +36,9 @@ public class TraderDaoTest {
   public void setUp() throws Exception {
     savedTrader = new Trader();
     savedTrader.setCountry("Canada");
-    savedTrader.setDob("2022-07-07T20:39:29.076Z");
+    DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    df = df.withLocale(Locale.ROOT);
+    savedTrader.setDob(LocalDate.parse("01-01-2022", df));
     savedTrader.setEmail("123@monke.com");
     savedTrader.setFirstName("monk");
     savedTrader.setLastName("e");
@@ -52,13 +60,33 @@ public class TraderDaoTest {
 
   @Test
   public void updateOne() {
+    try {
+      traderDao.updateOne(savedTrader);
+      fail();
+    } catch (UnsupportedOperationException e) {
+      assertTrue(true);
+    }
   }
 
   @Test
   public void delete() {
+    try {
+      traderDao.delete(savedTrader);
+      fail();
+    } catch (UnsupportedOperationException e) {
+      assertTrue(true);
+    }
   }
 
   @Test
   public void deleteAll() {
+    List<Trader> traders = new ArrayList<>();
+    traders.add(savedTrader);
+    try {
+      traderDao.deleteAll(traders);
+      fail();
+    } catch (UnsupportedOperationException e) {
+      assertTrue(true);
+    }
   }
 }

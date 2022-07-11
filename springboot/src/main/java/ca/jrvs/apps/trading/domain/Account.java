@@ -8,7 +8,24 @@ public class Account implements Entity<Integer> {
   traderId	integer($int32)
    */
   private Integer id;
+  private Double amount;
+  private Integer traderId;
 
+  public Double getAmount() {
+    return amount;
+  }
+
+  public void setAmount(Double amount) {
+    this.amount = amount;
+  }
+
+  public Integer getTraderId() {
+    return traderId;
+  }
+
+  public void setTraderId(Integer traderId) {
+    this.traderId = traderId;
+  }
 
   @Override
   public Integer getId() {
