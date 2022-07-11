@@ -1,6 +1,5 @@
 package ca.jrvs.apps.trading;
 
-import ca.jrvs.apps.trading.domain.Quote;
 import ca.jrvs.apps.trading.model.config.MarketDataConfig;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -62,10 +61,5 @@ public class AppConfig {
   @Bean
   public SimpleJdbcInsert simpleJdbcInsert(DataSource dataSource) {
     return new SimpleJdbcInsert(dataSource);
-  }
-
-  @Bean
-  public Quote quote() {
-    return new Quote();
   }
 }
