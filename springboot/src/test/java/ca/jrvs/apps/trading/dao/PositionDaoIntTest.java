@@ -1,16 +1,18 @@
 package ca.jrvs.apps.trading.dao;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.domain.Account;
+import ca.jrvs.apps.trading.domain.Position;
 import ca.jrvs.apps.trading.domain.Quote;
 import ca.jrvs.apps.trading.domain.SecurityOrder;
 import ca.jrvs.apps.trading.domain.Trader;
 import ca.jrvs.apps.trading.util.DomainBuilder;
 import java.util.Arrays;
 import java.util.List;
-import org.assertj.core.util.Lists;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +25,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {TestConfig.class})
 @Sql({"classpath:schema.sql"})
-public class SecurityOrderDaoTest {
+public class PositionDaoIntTest {
 
   @Autowired
   private AccountDao accountDao;
@@ -33,11 +35,14 @@ public class SecurityOrderDaoTest {
   private SecurityOrderDao securityOrderDao;
   @Autowired
   private TraderDao traderDao;
+  @Autowired
+  private PositionDao positionDao;
 
   private Account savedAccount;
   private Quote savedQuote;
   private SecurityOrder savedSecurityOrder;
   private Trader savedTrader;
+  private Position savedPosition;
 
   @Before
   public void setUp() throws Exception {
@@ -55,6 +60,9 @@ public class SecurityOrderDaoTest {
     savedSecurityOrder.setAccountId(savedAccount.getId());
     savedSecurityOrder.setTicker(savedQuote.getTicker());
     securityOrderDao.save(savedSecurityOrder);
+
+    savedPosition = positionDao.findById(savedSecurityOrder.getId(), savedSecurityOrder.getTicker())
+        .get();
   }
 
   @After
@@ -66,28 +74,66 @@ public class SecurityOrderDaoTest {
   }
 
   @Test
+  public void findAllById() {
+    List<Position> positionList = positionDao
+        .findAllById(Arrays.asList(savedPosition.getAccountId(), -1),
+            Arrays.asList(savedPosition.getTicker(), "amd"));
+    assertEquals(1, positionList.size());
+    assertEquals(savedPosition.getPosition(), positionList.get(0).getPosition());
+  }
+
+  @Test
+  public void existsById() {
+    assertTrue(positionDao.existsById(savedPosition.getId(), savedPosition.getTicker()));
+  }
+
+  @Test
   public void updateOne() {
-    Double val = securityOrderDao.findById(savedSecurityOrder.getId()).get().getPrice();
-    assertEquals(123.00, val, 0);
-    savedSecurityOrder.setPrice(345.00);
-    securityOrderDao.updateOne(savedSecurityOrder);
-    val = securityOrderDao.findById(savedSecurityOrder.getId()).get().getPrice();
-    assertEquals(345.00, val, 0);
+    try {
+      positionDao.updateOne(null);
+      fail();
+    } catch (UnsupportedOperationException e) {
+      assertTrue(true);
+    }
+  }
+
+  @Test
+  public void save() {
+    try {
+      positionDao.save(null);
+      fail();
+    } catch (UnsupportedOperationException e) {
+      assertTrue(true);
+    }
+  }
+
+  @Test
+  public void saveAll() {
+    try {
+      positionDao.saveAll(null);
+      fail();
+    } catch (UnsupportedOperationException e) {
+      assertTrue(true);
+    }
   }
 
   @Test
   public void delete() {
-    assertEquals(1, securityOrderDao.count());
-    securityOrderDao.delete(savedSecurityOrder);
-    assertEquals(0, securityOrderDao.count());
+    try {
+      positionDao.delete(null);
+      fail();
+    } catch (UnsupportedOperationException e) {
+      assertTrue(true);
+    }
   }
 
   @Test
   public void deleteAll() {
-    List<SecurityOrder> securityOrders = Lists
-        .newArrayList(securityOrderDao.findAllById(Arrays.asList(savedSecurityOrder.getId(), -1)));
-    assertEquals(1, securityOrderDao.count());
-    securityOrderDao.deleteAll(securityOrders);
-    assertEquals(0, securityOrderDao.count());
+    try {
+      positionDao.deleteAll(null);
+      fail();
+    } catch (UnsupportedOperationException e) {
+      assertTrue(true);
+    }
   }
 }

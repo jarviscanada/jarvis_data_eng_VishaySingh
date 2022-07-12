@@ -33,7 +33,7 @@ public class DomainBuilder {
     securityOrder.setNotes("notes");
     securityOrder.setPrice(123.00);
     securityOrder.setSize(3);
-    securityOrder.setStatus("PENDING");
+    securityOrder.setStatus("FILLED");
     return securityOrder;
   }
 
