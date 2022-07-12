@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import ca.jrvs.apps.trading.TestConfig;
 import ca.jrvs.apps.trading.domain.Quote;
-import ca.jrvs.apps.trading.util.DomainBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -25,12 +24,18 @@ public class QuoteDaoTest {
   @Autowired
   private QuoteDao quoteDao;
 
-  @Autowired
   private Quote savedQuote;
 
   @Before
   public void setUp() throws Exception {
-    savedQuote = DomainBuilder.buildQuote();
+    savedQuote = new Quote();
+    savedQuote.setAskPrice(10d);
+    savedQuote.setAskSize(10);
+    savedQuote.setBidPrice(10.2d);
+    savedQuote.setBidSize(10);
+    savedQuote.setId("aapl");
+    savedQuote.setTicker("aapl");
+    savedQuote.setLastPrice(10.1d);
     quoteDao.save(savedQuote);
   }
 
