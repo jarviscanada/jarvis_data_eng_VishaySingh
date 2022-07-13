@@ -34,6 +34,8 @@ public class TraderAccountService {
 
   /**
    * Create a new trader and init an account with 0 amount
+   * <p>
+   * Assumption: traderId == accountId
    *
    * @param trader
    * @return
@@ -134,7 +136,7 @@ public class TraderAccountService {
   }
 
   private void validateFunds(Double funds) {
-    if (funds <= 0) {
+    if (funds < 0) {
       throw new IllegalArgumentException("Funds must be positive");
     }
   }
