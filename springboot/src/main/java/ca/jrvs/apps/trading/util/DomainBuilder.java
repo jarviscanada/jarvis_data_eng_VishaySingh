@@ -4,6 +4,7 @@ import ca.jrvs.apps.trading.domain.Account;
 import ca.jrvs.apps.trading.domain.Quote;
 import ca.jrvs.apps.trading.domain.SecurityOrder;
 import ca.jrvs.apps.trading.domain.Trader;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -15,7 +16,7 @@ public class DomainBuilder {
     savedTrader.setCountry("Canada");
     DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     df = df.withLocale(Locale.ROOT);
-    savedTrader.setDob(LocalDate.parse("01-01-2022", df));
+    savedTrader.setDob(Date.valueOf(LocalDate.parse("01-01-2022", df)));
     savedTrader.setEmail("123@monke.com");
     savedTrader.setFirstName("monk");
     savedTrader.setLastName("e");
