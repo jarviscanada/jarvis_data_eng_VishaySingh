@@ -1,12 +1,13 @@
 package ca.jrvs.practice.codingChallenge;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 public class ValidParenthesesTest {
 
-  private ValidParentheses validParentheses = new ValidParentheses();
+  private final ValidParentheses validParentheses = new ValidParentheses();
 
   @Test
   public void isValid() {

@@ -6,6 +6,7 @@ public class ValidParentheses {
 
   /**
    * Big-o Analysis: O(n) time worst-case. O(n) space worst-case.
+   *
    * @param s
    * @return
    */
@@ -34,9 +35,6 @@ public class ValidParentheses {
       }
     }
 
-    if (!stack.isEmpty()) {
-      return false;
-    }
-    return true;
+    return stack.isEmpty();
   }
 }
