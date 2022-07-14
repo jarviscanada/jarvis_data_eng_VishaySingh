@@ -21,9 +21,6 @@ public class Application implements CommandLineRunner {
 
   private final Logger logger = LoggerFactory.getLogger(Application.class);
 
-//  @Value("${app.init.dailyList}")
-//  private String[] initDailyList;
-
   @Autowired
   private QuoteService quoteService;
   @Autowired
@@ -36,9 +33,6 @@ public class Application implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    if (args.length < 2) {
-      throw new IllegalArgumentException("Invalid Arguments");
-    }
-    quoteService.findIexQuoteByTicker(args[1]);
+
   }
 }
