@@ -21,12 +21,9 @@ skills:
     - Java
     - Linux/Bash
     - RDBMS/SQL
-    - MongoDB
-    - Neo4J
     - Agile/Scrum
     - Git
     - Python
-    - C
     - IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.)
     - REST API
     - Docker
@@ -35,17 +32,22 @@ skills:
     - JDBC
     - Regular Expressions
     - MVC architecture
+    - Spring/SpringBoot
+    - JUnit
+    - Lambda Expressions
+    - Stream API
   # At least 5 skills
   competent:
+    - C
     - JavaScript
     - Numpy, scikit-learn, Pandas, Pytorch, Matplotlib
     - JIRA
     - CI/CD
     - Repository design pattern
-    - JUnit
     - Maven
-    - Lambda Expressions
-    - Stream API
+    - MongoDB
+    - Neo4J
+    - Swagger
   # At least 5 skills
   familiar:
     - Racket & Haskell
@@ -53,7 +55,6 @@ skills:
     - Assembly
     - HTML
     - C++
-    - Spring/SpringBoot
 
 # List of Jarvis projects
 jarvis_projects:
@@ -81,7 +82,12 @@ jarvis_projects:
       traverses file paths resulting in an output file with all matching strings."
   - name: "Springboot App"
     git_url: "/springboot"
-    description: "In progress."
+    description: |
+      Designed, implemented, tested, and deployed a backend trading app that can create
+      and manage clients/accounts, and execute security orders on stocks defined by IEX Cloud's REST 
+      API. This app leverages three-tier architecture, microservices, and DAO design patterns. It was written
+      with standard Java libraries, SpringBoot Inversion of Control, SwaggerUI, PostgreSQL external 
+      databases, Maven, and deployed using Docker.
   - name: "Python Data Analytics"
     git_url: "/python_data_anlytics"
     description: "Not started."
@@ -129,7 +135,7 @@ professional_experience:
       Designed, implemented, tested, and deployed software projects relating to Linux/Bash scripting, 
       SQL, and Java, using Agile/Scrum methodology, Git Flow, and Docker. Attended and passed Master 
       Code Review meetings that certify acceptable code quality and requisite knowledge. Lead daily 
-      stand-up meetings during the first sprint, which coordinated and tracked scrum team progress.
+      stand-up meetings during the first and fifth sprints, which coordinated and tracked scrum team progress.
   - title: "Computer Technician"
     company: "Freelance"
     duration: "2017-present"
@@ -137,7 +143,7 @@ professional_experience:
       Constructed, tested, and overclocked custom PC hardware resulting in hundreds of prompt solutions 
       for satisfied clients.
 
-#List of edcuation
+#List of education
 education: 
   - school_name: "University of Toronto, Mississauga"
     duration: "2018-2022"
