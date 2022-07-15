@@ -10,11 +10,11 @@ playing video games, or learning guitar.
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, MongoDB, Neo4J, Agile/Scrum, Git, Python, C, IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.), REST API, Docker, DAO design pattern, CRUD, JDBC, Regular Expressions, MVC architecture
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python, IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.), REST API, Docker, DAO design pattern, CRUD, JDBC, Regular Expressions, MVC architecture, Spring/SpringBoot, JUnit, Lambda Expressions, Stream API
 
-**Competent:** JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Repository design pattern, JUnit, Maven, Lambda Expressions, Stream API
+**Competent:** C, JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Repository design pattern, Maven, MongoDB, Neo4J, Swagger
 
-**Familiar:** Racket & Haskell, R, Assembly, HTML, C++, Spring/SpringBoot
+**Familiar:** Racket & Haskell, R, Assembly, HTML, C++
 
 ## Jarvis Projects
 
@@ -32,7 +32,12 @@ for the entire cluster.
   - JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD persisted sales data, resulting in atomic business-related queries.
   - Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively traverses file paths resulting in an output file with all matching strings.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/springboot)]: In progress.
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/springboot)]: Designed, implemented, tested, and deployed a backend trading app that can create
+and manage clients/accounts, and execute security orders on stocks defined by IEX Cloud's REST 
+API. This app leverages three-tier architecture, microservices, and DAO design patterns. It was written
+with standard Java libraries, SpringBoot Inversion of Control, SwaggerUI, PostgreSQL external 
+databases, Maven, and deployed using Docker.
+
 
 **Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/python_data_anlytics)]: Not started.
 
@@ -61,7 +66,7 @@ that exploit the Linux LD_PRELOAD environment variable.
 **Software Engineer (Bilingual / Entry Level), Jarvis (2022-present)**: Designed, implemented, tested, and deployed software projects relating to Linux/Bash scripting, 
 SQL, and Java, using Agile/Scrum methodology, Git Flow, and Docker. Attended and passed Master 
 Code Review meetings that certify acceptable code quality and requisite knowledge. Lead daily 
-stand-up meetings during the first sprint, which coordinated and tracked scrum team progress.
+stand-up meetings during the first and fifth sprints, which coordinated and tracked scrum team progress.
 
 
 **Computer Technician, Freelance (2017-present)**: Constructed, tested, and overclocked custom PC hardware resulting in hundreds of prompt solutions 
