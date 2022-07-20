@@ -19,11 +19,13 @@ export default class TraderList extends Component {
                 title: 'First Name',
                 dataIndex: 'firstName',
                 key: 'firstName',
+                sorter: (a, b) => a.firstName.localeCompare(b.firstName)
             },
             {
                 title: 'Last Name',
                 dataIndex: 'lastName',
                 key: 'lastName',
+                sorter: (a, b) => a.lastName.localeCompare(b.lastName)
             },
             {
                 title: 'Email',
@@ -34,6 +36,7 @@ export default class TraderList extends Component {
                 title: 'Date of Birth',
                 dataIndex: 'dob',
                 key: 'dob',
+                sorter: (a, b) => new Date(a.dob) - new Date(b.dob)
             },
             {
                 title: 'Country',
