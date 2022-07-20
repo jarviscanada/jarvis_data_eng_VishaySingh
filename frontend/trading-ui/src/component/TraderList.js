@@ -1,6 +1,9 @@
 import { Component } from 'react';
 import { Table } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faTrashAlt as deleteIcon
+} from '@fortawesome/free-solid-svg-icons';
 
 import 'antd/dist/antd.css';
 import './TraderList.scss';
@@ -40,7 +43,12 @@ export default class TraderList extends Component {
             {
                 title: 'Actions',
                 dataIndex: 'actions',
-                key: 'actions'
+                key: 'actions',
+                render: (text, record) => (
+                    <div className="trader-delete-icon">
+                        <FontAwesomeIcon icon={ deleteIcon } onClick={() => props.onTraderDeleteClick(record.id) } />
+                    </div>
+                ),
             },
         ];
         this.state = {

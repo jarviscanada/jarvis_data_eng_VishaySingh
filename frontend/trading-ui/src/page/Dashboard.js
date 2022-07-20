@@ -10,6 +10,11 @@ export default withRouter(class Dashboard extends Component {
         super(props);
     }
 
+    onTraderDelete(id) {
+        //delete trader 
+        console.log("Trader " + id + " is deleted.");
+    }
+
     render () {
         return (
             <div className="dashboard">
@@ -17,7 +22,7 @@ export default withRouter(class Dashboard extends Component {
                 <div className='title'>
                     Dashboard
                 </div>
-                <TraderList />
+                <TraderList onTraderDeleteClick={this.onTraderDelete} />
             </div>
         );
     }
