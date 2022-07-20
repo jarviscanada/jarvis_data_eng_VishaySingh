@@ -59,39 +59,39 @@ export default class TraderList extends Component {
         }
     }
 
-    componentDidMount() {
-		// Mock datasource, since we are not connected to the backend yet
-        const dataSource = [
-            {
-              key: '1',
-              id: 1,
-              firstName: 'Mike',
-              lastName: 'Spencer',
-              dob: new Date().toLocaleDateString(),
-              country: 'Canada',
-              email: 'mike@test.com'
-            },
-            {
-                key: '2',
-                id: 2,
-                firstName: 'Hellen',
-                lastName: 'Miller',
-                dob: new Date().toLocaleDateString(),
-                country: 'Austria',
-                email: 'hellen@test.com'
-            },
-        ];
+    // componentDidMount() {
+	// 	// Mock datasource, since we are not connected to the backend yet
+    //     const dataSource = [
+    //         {
+    //           key: '1',
+    //           id: 1,
+    //           firstName: 'Mike',
+    //           lastName: 'Spencer',
+    //           dob: new Date().toLocaleDateString(),
+    //           country: 'Canada',
+    //           email: 'mike@test.com'
+    //         },
+    //         {
+    //             key: '2',
+    //             id: 2,
+    //             firstName: 'Hellen',
+    //             lastName: 'Miller',
+    //             dob: new Date().toLocaleDateString(),
+    //             country: 'Austria',
+    //             email: 'hellen@test.com'
+    //         },
+    //     ];
 
-        this.setState({
-            dataSource
-        });
-    }
+    //     this.setState({
+    //         dataSource
+    //     });
+    // }
     
 	// Render method which returns a Table with defined columns and a mock dataSource
     render() {
         return (
            <Table 
-                dataSource={ this.state.dataSource } 
+                dataSource={ this.props.traders } 
                 columns={ this.state.columns } 
                 pagination={ false }
             />

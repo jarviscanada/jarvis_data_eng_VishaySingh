@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Input, DatePicker, Modal, Button, Form } from 'antd';
-//import axios from 'axios';
+import axios from 'axios';
 
 //import { createTraderUrl, deleteTraderUrl, tradersUrl } from '../util/constants';
 import Navbar from '../component/NavBar';
@@ -9,6 +9,7 @@ import TraderList from '../component/TraderList';
 
 import 'antd/dist/antd.min.css';
 import "./Dashboard.scss";
+import { deleteTraderUrl, tradersUrl } from '../util/Constants';
 
 export default withRouter(class Dashboard extends Component {
     constructor(props) {
@@ -31,11 +32,12 @@ export default withRouter(class Dashboard extends Component {
     }
 
     async getTraders() {
-				// Set traders to state of the component
-				// You should mock traders here for now
-        this.setState({
-            traders: []
-        })
+        const response = await axios.get(tradersUrl);
+        if (response) {
+            this.setState({
+                traders: response.data || []
+            })
+        }
     }
 
 
@@ -50,7 +52,11 @@ export default withRouter(class Dashboard extends Component {
     async handleOk() {
         // Here we would send a request to the backend to create a new trader
         // After creating a new trader, refresh traders list
+        const paramUrl = `/firstname/${this.state.firstName}/lastname/${this.state.lastName}/dob/${this.state.dob}/country/${this.state.country}/email/${this.state.email}`;
+        const response = await axios.post(createTraderUrl + paramUrl, {});
+
         await this.getTraders();
+
         // Close the modal & unset all fields
         this.setState({
             isModalVisible: false,
@@ -81,8 +87,10 @@ export default withRouter(class Dashboard extends Component {
     }
 
     async onTraderDelete(id) {
-        console.log("Trader " + id + " is deleted.");
+        //console.log("Trader " + id + " is deleted.");
         // send a request to backend to delete the trader with specific id
+        const paramUrl = "/" + id;
+        const response = await axios.delete(deleteTraderUrl + paramUrl, {});
         
         // refresh traders list
         await this.getTraders();
