@@ -1,8 +1,9 @@
 import { Component } from 'react';
 // Imports we need for routing, provided in react-router-dom library
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-// We have to import all components to be able to use them.
+// We have to import all components to. beable to use them.
+// Currently, we should only have the Dashboard component
 import Dashboard from './page/Dashboard';
 
 // Initialization of Router Component
@@ -12,14 +13,14 @@ export default class Router extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Routes>
+                <Switch>
                     <Route exact path="/">
-                        <Navigate to="/dashboard" />
+                        <Redirect to="/dashboard" />
                     </Route>
                     <Route exact path="/dashboard">
                         <Dashboard />
                     </Route>
-               </Routes>
+               </Switch>
             </BrowserRouter>
         )
     }
