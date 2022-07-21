@@ -4,17 +4,20 @@ Hello there! My name is Vishay Singh and I graduated from the University of Toro
 Bachelor's Degree of Science, majoring in Computer Science and French Studies. Since a young age, I've
 been fascinated by what technology can do to solve real world problems, which is exactly what I want 
 to do in the software industry. In fact, learning new things is a passion of mine, so software provides 
-the perfect avenue to continually challenge myself. In my spare time, I'm either building computers, 
+the perfect avenue to continually challenge myself. This mindset lead to my projects at Jarvis, which includes
+a Linux/SQL server usage bot, a Java grep implementation & JDBC app, a Twitter CRD backend app, and a SpringBoot
+backend trading app. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN song lyric
+model, and a lecture on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, 
 playing video games, or learning guitar.
 
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python, IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.), REST API, Docker, DAO design pattern, CRUD, JDBC, Regular Expressions, MVC architecture, Spring/SpringBoot, JUnit, Lambda Expressions, Stream API
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python, RESTful services, Docker, Spring/SpringBoot
 
-**Competent:** C, JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Repository design pattern, Maven, MongoDB, Neo4J, Swagger
+**Competent:** C, JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Maven, MongoDB, Neo4J, Swagger
 
-**Familiar:** Racket & Haskell, R, Assembly, HTML, C++
+**Familiar:** Racket & Haskell, R, Assembly, HTML, C++, Express.js, Node.js, React.js
 
 ## Jarvis Projects
 
@@ -28,7 +31,7 @@ for the entire cluster.
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/core_java)]:
       
-  - Twitter App: Designed, implemented, tested, and deployed a backend Java app that can CRUD tweets using Twitter's REST API. Common design patterns & frameworks were leveraged to design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using JUnit and Mockito, resulted in a well-tested app published on DockerHub.
+  - Twitter App: Designed, implemented, tested, and deployed a backend Java app that can CRD tweets using Twitter's REST API. Common design patterns & frameworks were leveraged to design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using JUnit and Mockito, resulted in a well-tested app published on DockerHub.
   - JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD persisted sales data, resulting in atomic business-related queries.
   - Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively traverses file paths resulting in an output file with all matching strings.
 
@@ -39,13 +42,7 @@ with standard Java libraries, SpringBoot Inversion of Control, SwaggerUI, Postgr
 databases, Maven, and deployed using Docker.
 
 
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/python_data_anlytics)]: Not started.
-
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/hadoop)]: Not started.
-
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/spark)]: Not started.
-
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/cloud_devops)]: Not started.
+**Frontend/React** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/frontend)]: In progress.
 
 
 ## Highlighted Projects
@@ -66,7 +63,7 @@ that exploit the Linux LD_PRELOAD environment variable.
 **Software Engineer (Bilingual / Entry Level), Jarvis (2022-present)**: Designed, implemented, tested, and deployed software projects relating to Linux/Bash scripting, 
 SQL, and Java, using Agile/Scrum methodology, Git Flow, and Docker. Attended and passed Master 
 Code Review meetings that certify acceptable code quality and requisite knowledge. Lead daily 
-stand-up meetings during the first and fifth sprints, which coordinated and tracked scrum team progress.
+stand-up meetings during sprints, which coordinated and tracked scrum team progress.
 
 
 **Computer Technician, Freelance (2017-present)**: Constructed, tested, and overclocked custom PC hardware resulting in hundreds of prompt solutions 
