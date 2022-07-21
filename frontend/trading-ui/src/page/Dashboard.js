@@ -9,7 +9,7 @@ import TraderList from '../component/TraderList';
 
 import 'antd/dist/antd.min.css';
 import "./Dashboard.scss";
-import { deleteTraderUrl, tradersUrl } from '../util/Constants';
+import { deleteTraderUrl, tradersUrl, createTraderUrl } from '../util/Constants';
 
 export default withRouter(class Dashboard extends Component {
     constructor(props) {
@@ -33,6 +33,7 @@ export default withRouter(class Dashboard extends Component {
 
     async getTraders() {
         const response = await axios.get(tradersUrl);
+        console.log(response);
         if (response) {
             this.setState({
                 traders: response.data || []
@@ -41,7 +42,7 @@ export default withRouter(class Dashboard extends Component {
     }
 
 
-		// Method that sets if the modal for adding traders is visible or not
+	// Method that sets if the modal for adding traders is visible or not
     showModal() {
         this.setState({
             isModalVisible: true
