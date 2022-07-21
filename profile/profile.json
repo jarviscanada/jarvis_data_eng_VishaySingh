@@ -39,7 +39,7 @@
     },
     {
       "description": [
-        "Twitter App: Designed, implemented, tested, and deployed a backend Java app that can CRUD tweets using Twitter's REST API. Common design patterns \u0026 frameworks were leveraged to design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using JUnit and Mockito, resulted in a well-tested app published on DockerHub.",
+        "Twitter App: Designed, implemented, tested, and deployed a backend Java app that can CRD tweets using Twitter's REST API. Common design patterns \u0026 frameworks were leveraged to design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using JUnit and Mockito, resulted in a well-tested app published on DockerHub.",
         "JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD persisted sales data, resulting in atomic business-related queries.",
         "Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively traverses file paths resulting in an output file with all matching strings."
       ],
@@ -52,24 +52,9 @@
       "name": "Springboot App"
     },
     {
-      "description": "Not started.",
-      "git_url": "/python_data_anlytics",
-      "name": "Python Data Analytics"
-    },
-    {
-      "description": "Not started.",
-      "git_url": "/hadoop",
-      "name": "Hadoop"
-    },
-    {
-      "description": "Not started.",
-      "git_url": "/spark",
-      "name": "Spark"
-    },
-    {
-      "description": "Not started.",
-      "git_url": "/cloud_devops",
-      "name": "Cloud/DevOps"
+      "description": "In progress.",
+      "git_url": "/frontend",
+      "name": "Frontend/React"
     }
   ],
   "name": "Vishay Singh",
@@ -87,7 +72,7 @@
   "professional_experience": [
     {
       "company": "Jarvis",
-      "description": "Designed, implemented, tested, and deployed software projects relating to Linux/Bash scripting, \nSQL, and Java, using Agile/Scrum methodology, Git Flow, and Docker. Attended and passed Master \nCode Review meetings that certify acceptable code quality and requisite knowledge. Lead daily \nstand-up meetings during the first and fifth sprints, which coordinated and tracked scrum team progress.\n",
+      "description": "Designed, implemented, tested, and deployed software projects relating to Linux/Bash scripting, \nSQL, and Java, using Agile/Scrum methodology, Git Flow, and Docker. Attended and passed Master \nCode Review meetings that certify acceptable code quality and requisite knowledge. Lead daily \nstand-up meetings during sprints, which coordinated and tracked scrum team progress.\n",
       "duration": "2022-present",
       "title": "Software Engineer (Bilingual / Entry Level)"
     },
@@ -105,7 +90,6 @@
       "Numpy, scikit-learn, Pandas, Pytorch, Matplotlib",
       "JIRA",
       "CI/CD",
-      "Repository design pattern",
       "Maven",
       "MongoDB",
       "Neo4J",
@@ -116,7 +100,10 @@
       "R",
       "Assembly",
       "HTML",
-      "C++"
+      "C++",
+      "Express.js",
+      "Node.js",
+      "React.js"
     ],
     "proficient": [
       "Java",
@@ -125,19 +112,10 @@
       "Agile/Scrum",
       "Git",
       "Python",
-      "IDEs (IntelliJ, Visual Studio Code, Eclipse, PyCharm, etc.)",
-      "REST API",
+      "RESTful services",
       "Docker",
-      "DAO design pattern",
-      "CRUD",
-      "JDBC",
-      "Regular Expressions",
-      "MVC architecture",
-      "Spring/SpringBoot",
-      "JUnit",
-      "Lambda Expressions",
-      "Stream API"
+      "Spring/SpringBoot"
     ]
   },
-  "summary": "Hello there! My name is Vishay Singh and I graduated from the University of Toronto with an Honours \nBachelor's Degree of Science, majoring in Computer Science and French Studies. Since a young age, I've\nbeen fascinated by what technology can do to solve real world problems, which is exactly what I want \nto do in the software industry. In fact, learning new things is a passion of mine, so software provides \nthe perfect avenue to continually challenge myself. In my spare time, I'm either building computers, \nplaying video games, or learning guitar.\n"
+  "summary": "Hello there! My name is Vishay Singh and I graduated from the University of Toronto with an Honours \nBachelor's Degree of Science, majoring in Computer Science and French Studies. Since a young age, I've\nbeen fascinated by what technology can do to solve real world problems, which is exactly what I want \nto do in the software industry. In fact, learning new things is a passion of mine, so software provides \nthe perfect avenue to continually challenge myself. This mindset lead to my projects at Jarvis, which includes\na Linux/SQL server usage bot, a Java grep implementation \u0026 JDBC app, a Twitter CRD backend app, and a SpringBoot\nbackend trading app. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN song lyric\nmodel, and a lecture on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, \nplaying video games, or learning guitar.\n"
 }
