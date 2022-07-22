@@ -5,6 +5,7 @@ import ca.jrvs.apps.trading.dao.PositionDao;
 import ca.jrvs.apps.trading.dao.SecurityOrderDao;
 import ca.jrvs.apps.trading.dao.TraderDao;
 import ca.jrvs.apps.trading.domain.Account;
+import ca.jrvs.apps.trading.domain.Position;
 import ca.jrvs.apps.trading.domain.SecurityOrder;
 import ca.jrvs.apps.trading.domain.Trader;
 import ca.jrvs.apps.trading.domain.TraderAccountView;
@@ -68,11 +69,17 @@ public class TraderAccountService {
       throw new IllegalArgumentException("Balance is not 0");
     }
 
+    //Check no open positions
+    List<Position> positionList = positionDao.findAll();
+    if (positionList.stream().anyMatch((x) -> Objects.equals(x.getAccountId(), traderId))) {
+      throw new IllegalArgumentException("Trader has open positions");
+    }
+
     //delete all securities
     List<SecurityOrder> securityOrders = securityOrderDao.findAll();
     securityOrders.stream()
         .filter((x) -> Objects.equals(x.getAccountId(), traderId))
-        .forEach((x) -> securityOrderDao.delete(x));
+        .forEach(securityOrderDao::delete);
 
     accountDao.delete(traderAccount.get()); //delete account
     traderDao.deleteById(traderId); //delete trader
