@@ -109,9 +109,7 @@ public class PositionDao extends JdbcCrudDao<Position> {
     List<Position> positionList = new ArrayList<>();
     for (int i = 0; i < ids.size(); i++) {
       Optional<Position> position = this.findById(ids.get(i), tickers.get(i));
-      if (position.isPresent()) {
-        positionList.add(position.get());
-      }
+      position.ifPresent(positionList::add);
     }
     return positionList;
   }
