@@ -1,6 +1,7 @@
 package ca.jrvs.apps.trading.domain;
 
 public class SecurityRow {
+
   private Position position;
   private Quote quote;
   private String ticker;
@@ -27,11 +28,11 @@ public class SecurityRow {
     this.quote = quote;
   }
 
-  public Ticker getTicker() {
+  public String getTicker() {
     return ticker;
   }
 
-  public void setTicker(Ticker ticker) {
+  public void setTicker(String ticker) {
     this.ticker = ticker;
   }
 }

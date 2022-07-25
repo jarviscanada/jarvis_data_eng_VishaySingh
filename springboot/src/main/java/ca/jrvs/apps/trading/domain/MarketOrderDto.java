@@ -1,6 +1,6 @@
 package ca.jrvs.apps.trading.domain;
 
-public class MarketOrderDto implements Entity<Integer>{
+public class MarketOrderDto implements Entity<Integer> {
 
   /*
   accountId	integer($int32)
