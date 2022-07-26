@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import axios from 'axios';
 import { Input, Modal, Button } from 'antd';
 
-import { traderAccountUrl, withdrawFundsUrl, depositFundsUrl } from '../util/constants';
+import { traderAccountUrl, withdrawFundsUrl, depositFundsUrl } from '../util/Constants';
 import Navbar from '../component/NavBar';
 
 import 'antd/dist/antd.min.css';
@@ -14,7 +14,8 @@ export default withRouter(class TraderAccountPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            trader: []
+            trader: [],
+            account: []
         };
         this.fetchTrader = this.fetchTrader.bind(this);
         this.showDepositModal = this.showDepositModal.bind(this);
@@ -39,7 +40,8 @@ export default withRouter(class TraderAccountPage extends Component {
         const response = await axios.get(traderAccountUrl + traderId);
         if (response) {
             this.setState({
-                trader: response.data
+                trader: response.data.trader,
+                account: response.data.account
             });
         }
     }
@@ -52,6 +54,9 @@ export default withRouter(class TraderAccountPage extends Component {
 
     showWithdrawModal() {
         // show withdraw modal
+        this.setState({
+            isWithdrawModalVisible: true
+        })
     }
 
     handleDepositCancel() {
@@ -63,6 +68,10 @@ export default withRouter(class TraderAccountPage extends Component {
 
     handleWithdrawCancel() {
         // close withdraw modal & reset withdraw funds 
+        this.setState({
+            isWithdrawModalVisible: false,
+            withdrawFunds: null
+        })
     }
 
     async handleDepositOk() {
@@ -78,6 +87,14 @@ export default withRouter(class TraderAccountPage extends Component {
 
     async handleWithdrawOk() {
         // implement this method
+        const traderWithdrawUrl = withdrawFundsUrl + this.state.traderId + "/amount/" + this.state.withdrawFunds;
+        const response = await axios.put(traderWithdrawUrl);
+        if (response) {
+            await this.fetchTrader(this.state.traderId);
+            this.setState({
+                isWithdrawModalVisible: false
+            });
+        }
     }
 
     onInputChange(field, value) {
@@ -109,7 +126,9 @@ export default withRouter(class TraderAccountPage extends Component {
                                     <div className="content-heading">
                                         Last Name
                                     </div>
-                                    ...
+                                    <div className="content">
+                                        { this.state.trader.lastName }
+                                    </div>
                                 </div>
                             </div>
                             <div className="info-row">
@@ -117,7 +136,9 @@ export default withRouter(class TraderAccountPage extends Component {
                                     <div className="content-heading">
                                         Email
                                     </div>
-                                    ...
+                                    <div className="content">
+                                        { this.state.trader.email }
+                                    </div>
                                 </div>
                             </div>
                             <div className="info-row"> 
@@ -125,10 +146,17 @@ export default withRouter(class TraderAccountPage extends Component {
                                     <div className="content-heading">
                                         Date of Birth
                                     </div>
-                                    ...
+                                    <div className="content">
+                                        { this.state.trader.dob }
+                                    </div>
                                 </div>
                                 <div className="field">
-                                    ...
+                                <div className="content-heading">
+                                        Country
+                                    </div>
+                                    <div className="content">
+                                        { this.state.trader.country }
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +167,7 @@ export default withRouter(class TraderAccountPage extends Component {
                                         Amount
                                     </div>
                                     <div className="content amount">
-                                        { this.state.trader.amount }$
+                                        { this.state.account.amount }$
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +181,14 @@ export default withRouter(class TraderAccountPage extends Component {
                                     </div>
                                 </div>
                             </Modal>
-                            // implement button for withdraw here
+                            <Button onClick={this.showWithdrawModal.bind(this)}>Withdraw Funds</Button>
+                            <Modal title="Withdraw Funds"  okText="Submit" visible={this.state.isWithdrawModalVisible} onOk={this.handleWithdrawOk} onCancel={this.handleWithdrawCancel}>
+                                <div className="funds-form">
+                                    <div className="funds-field">
+                                        <Input allowClear={false} placeholder="Funds" onChange={(event) => this.onInputChange("withdrawFunds", event.target.value)} />
+                                    </div>
+                                </div>
+                            </Modal>
                         </div>
                     </div>
                 </div>

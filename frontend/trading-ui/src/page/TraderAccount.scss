@@ -21,7 +21,7 @@
             }
         }
         .trader-card {
-            background: rgb(153, 0, 255);
+            background: rgb(191, 246, 250);
             width: fit-content;
             margin-right: 112px;// set margin
     
@@ -46,13 +46,13 @@
                     }
     
                     .content {
-                        max-width: 150px;
+                        max-width: 300px;
                         font-style: normal;
                         font-weight: 600;
                         line-height: 24px;
     
                         &.amount {
-                            font-size: 12;// set font size
+                            font-size: 42;// set font size
                         }
                     }
                 }
