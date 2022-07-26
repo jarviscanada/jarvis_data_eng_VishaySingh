@@ -107,33 +107,86 @@ export default withRouter(class Dashboard extends Component {
                         Dashboard
                         <div className="add-trader-button">
                             <Button onClick={this.showModal.bind(this)}>Add New Trader</Button>
-                            <Modal title="Add New Trader"  okText="Submit" visible={this.state.isModalVisible} onOk={this.handleOk} onCancel={this.handleCancel}>
+                            <Modal title="Add New Trader"  
+                                okText="Submit" 
+                                visible={this.state.isModalVisible} 
+                                onOk={() => {
+                                    this.formRef.current
+                                    .validateFields()
+                                    .then((values) => {
+                                        this.formRef.current.resetFields();
+                                        this.handleOk();
+                                    })
+                                    .catch((info) => {
+                                        console.warn('Validate Failed', info);
+                                    });
+                                }} 
+                                onCancel={this.handleCancel}>
                                 <Form
+                                    ref={this.formRef}
                                     layout="vertical"
                                 >
                                     <div className="add-trader-form">
                                         <div className="add-trader-field">
-                                            <Form.Item label="First Name">
+                                            <Form.Item 
+                                                name="First Name"
+                                                label="First Name"
+                                                rules={[
+                                                    {
+                                                        required: true,
+                                                    }
+                                                ]}
+                                            >
                                                 <Input allowClear={false} placeholder="John" onChange={(event) => this.onInputChange("firstName", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
-                                            <Form.Item label="Last Name">
+                                            <Form.Item 
+                                                name="Last Name"
+                                                label="Last Name"
+                                                rules={[
+                                                    {
+                                                        required: true,
+                                                    }
+                                                ]}>
                                                 <Input allowClear={false} placeholder="Doe" onChange={(event) => this.onInputChange("lastName", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
-                                            <Form.Item label="Email">
+                                            <Form.Item 
+                                                name="Email"
+                                                label="Email"
+                                                rules={[
+                                                    {
+                                                        required: true,
+                                                        message: "Please enter a valid email",
+                                                        pattern: new RegExp(/^[a-zA-Z0-9.]+@[a-zA-Z]+.[a-zA-Z]+$/)
+                                                    }
+                                                ]}>
                                                 <Input allowClear={false} placeholder="JohnDoe@email.com" onChange={(event) => this.onInputChange("email", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
-                                            <Form.Item label="Country">
+                                            <Form.Item 
+                                                name="Country"
+                                                label="Country"
+                                                rules={[
+                                                    {
+                                                        required: true,
+                                                    }
+                                                ]}>
                                                 <Input allowClear={false} placeholder="Canada" onChange={(event) => this.onInputChange("country", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
-                                            <Form.Item label="Date of Birth">
+                                            <Form.Item 
+                                                name="Date of Birth"
+                                                label="Date of Birth"
+                                                rules={[
+                                                    {
+                                                        required: true,
+                                                    }
+                                                ]}>
                                                 <DatePicker style={{width:"100%"}} placeholder="" onChange={(date, dateString) => this.onInputChange("dob", date.format("yyyy-MM-DD"))} />
                                             </Form.Item>
                                         </div>
