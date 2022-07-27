@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: react-app
+    image: react-app
+    build:
+      context: .
+      dockerfile: dockerfile
+      target: production
+    command: npm start
+    ports:
+      - "3000:3000"
