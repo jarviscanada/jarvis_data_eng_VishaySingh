@@ -81,7 +81,7 @@ This app was deployed using Docker. A Dockerfile has been provided, making the d
 docker build -t ${docker_user}/frontend .
 ```
 
-For steps on how to pull and run the provided docker image(s), please see the [Quick Start](Quick_Start).
+For steps on how to pull and run the provided docker image(s), please see the [Quick Start](#quick-start).
 
 # Improvements
 
