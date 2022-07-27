@@ -178,17 +178,7 @@ export default withRouter(class TraderAccountPage extends Component {
                                 title="Deposit Funds"  
                                 okText="Submit" 
                                 visible={this.state.isDepositModalVisible} 
-                                onOk={() => {
-                                    this.depositFormRef.current
-                                    .validateFields()
-                                    .then((values) => {
-                                        this.depositFormRef.current.resetFields();
-                                        this.handleDepositOk();
-                                    })
-                                    .catch((info) => {
-                                        console.warn('Validate Failed', info)
-                                    });
-                                }} 
+                                onOk={this.handleDepositOk} 
                                 onCancel={this.handleDepositCancel}
                             >
                                 <Form
@@ -217,17 +207,7 @@ export default withRouter(class TraderAccountPage extends Component {
                                 title="Withdraw Funds"  
                                 okText="Submit" 
                                 visible={this.state.isWithdrawModalVisible} 
-                                onOk={() => {
-                                    this.withdrawalFormRef.current
-                                    .validateFields()
-                                    .then((values) => {
-                                        this.withdrawalFormRef.current.resetFields();
-                                        this.handleWithdrawOk();
-                                    })
-                                    .catch((info) => {
-                                        console.warn('Validate Failed:', info);
-                                    });
-                                }} 
+                                onOk={this.handleWithdrawOk} 
                                 onCancel={this.handleWithdrawCancel}
                             >
                                 <Form 
@@ -235,8 +215,8 @@ export default withRouter(class TraderAccountPage extends Component {
                                 >
                                 <div className="funds-form">
                                     <Form.Item
-                                        name="Amount"
-                                        rule={[
+                                        name="Amount2"
+                                        rules={[
                                             {
                                                 required: true,
                                                 pattern: new RegExp(/^[0-9]+$/),

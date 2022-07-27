@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Input, DatePicker, Modal, Button, Form } from 'antd';
 import axios from 'axios';
@@ -22,7 +22,8 @@ export default withRouter(class Dashboard extends Component {
         this.onTraderDelete = this.onTraderDelete.bind(this);
         this.state = {
             isModalVisible: false,
-            traders: []
+            traders: [],
+            formRef: React.createRef()
         }
     }
 
@@ -110,21 +111,12 @@ export default withRouter(class Dashboard extends Component {
                             <Modal title="Add New Trader"  
                                 okText="Submit" 
                                 visible={this.state.isModalVisible} 
-                                onOk={() => {
-                                    this.formRef.current
-                                    .validateFields()
-                                    .then((values) => {
-                                        this.formRef.current.resetFields();
-                                        this.handleOk();
-                                    })
-                                    .catch((info) => {
-                                        console.warn('Validate Failed', info);
-                                    });
-                                }} 
+                                onOk={this.handleOk} 
                                 onCancel={this.handleCancel}>
                                 <Form
                                     ref={this.formRef}
                                     layout="vertical"
+                                    onSubmit={this.handleOk}
                                 >
                                     <div className="add-trader-form">
                                         <div className="add-trader-field">
