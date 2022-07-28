@@ -52,9 +52,14 @@
       "name": "Springboot App"
     },
     {
-      "description": "In progress.",
+      "description": "Designed, implemented, tested, and deployed a frontend app that built upon the SpringBoot project's backend which\nprovides traders a clean UI where they can add accounts, check stock quotes, and read/update their account info. \nAll components were built using React.js, styled using S/CSS, managed using NPM, tested in the browser, and deployed \nusing Docker.\n",
       "git_url": "/frontend",
       "name": "Frontend/React"
+    },
+    {
+      "description": "In progress.",
+      "git_url": "/cloud_devops",
+      "name": "Cloud/DevOps"
     }
   ],
   "name": "Vishay Singh",
@@ -85,6 +90,7 @@
   ],
   "skills": {
     "competent": [
+      "React.js",
       "C",
       "JavaScript",
       "Numpy, scikit-learn, Pandas, Pytorch, Matplotlib",
@@ -100,10 +106,10 @@
       "R",
       "Assembly",
       "HTML",
+      "CSS",
       "C++",
       "Express.js",
-      "Node.js",
-      "React.js"
+      "Node.js"
     ],
     "proficient": [
       "Java",
@@ -117,5 +123,5 @@
       "Spring/SpringBoot"
     ]
   },
-  "summary": "Hello there! My name is Vishay Singh and I graduated from the University of Toronto with an Honours \nBachelor's Degree of Science, majoring in Computer Science and French Studies. Since a young age, I've\nbeen fascinated by what technology can do to solve real world problems, which is exactly what I want \nto do in the software industry. In fact, learning new things is a passion of mine, so software provides \nthe perfect avenue to continually challenge myself. This mindset lead to my projects at Jarvis, which includes\na Linux/SQL server usage bot, a Java grep implementation \u0026 JDBC app, a Twitter CRD backend app, and a SpringBoot\nbackend trading app. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN song lyric\nmodel, and a lecture on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, \nplaying video games, or learning guitar.\n"
+  "summary": "Hello there! My name is Vishay Singh and I graduated from the University of Toronto with an Honours \nBachelor's Degree of Science, majoring in Computer Science and French Studies. Since a young age, I've\nbeen fascinated by what technology can do to solve real world problems, which is exactly what I want \nto do in the software industry. In fact, learning new things is a passion of mine, so software provides \nthe perfect avenue to continually challenge myself. This mindset lead to my projects at Jarvis, which includes\na Linux/SQL server usage bot, a Java grep implementation \u0026 JDBC app, a Twitter CRD backend app, and a fullstack React.js\n\u0026 SpringBoot trading app. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN generative song lyric\nmodel, and a lecture/tutorial on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, \nplaying video games, or learning guitar.\n"
 }

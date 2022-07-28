@@ -5,9 +5,9 @@ Bachelor's Degree of Science, majoring in Computer Science and French Studies. S
 been fascinated by what technology can do to solve real world problems, which is exactly what I want 
 to do in the software industry. In fact, learning new things is a passion of mine, so software provides 
 the perfect avenue to continually challenge myself. This mindset lead to my projects at Jarvis, which includes
-a Linux/SQL server usage bot, a Java grep implementation & JDBC app, a Twitter CRD backend app, and a SpringBoot
-backend trading app. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN song lyric
-model, and a lecture on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, 
+a Linux/SQL server usage bot, a Java grep implementation & JDBC app, a Twitter CRD backend app, and a fullstack React.js
+& SpringBoot trading app. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN generative song lyric
+model, and a lecture/tutorial on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, 
 playing video games, or learning guitar.
 
 
@@ -15,9 +15,9 @@ playing video games, or learning guitar.
 
 **Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python, RESTful services, Docker, Spring/SpringBoot
 
-**Competent:** C, JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Maven, MongoDB, Neo4J, Swagger
+**Competent:** React.js, C, JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Maven, MongoDB, Neo4J, Swagger
 
-**Familiar:** Racket & Haskell, R, Assembly, HTML, C++, Express.js, Node.js, React.js
+**Familiar:** Racket & Haskell, R, Assembly, HTML, CSS, C++, Express.js, Node.js
 
 ## Jarvis Projects
 
@@ -42,7 +42,13 @@ with standard Java libraries, SpringBoot Inversion of Control, SwaggerUI, Postgr
 databases, Maven, and deployed using Docker.
 
 
-**Frontend/React** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/frontend)]: In progress.
+**Frontend/React** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/frontend)]: Designed, implemented, tested, and deployed a frontend app that built upon the SpringBoot project's backend which
+provides traders a clean UI where they can add accounts, check stock quotes, and read/update their account info. 
+All components were built using React.js, styled using S/CSS, managed using NPM, tested in the browser, and deployed 
+using Docker.
+
+
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/cloud_devops)]: In progress.
 
 
 ## Highlighted Projects
