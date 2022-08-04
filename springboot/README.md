@@ -36,7 +36,7 @@ Table of contents
 	-e POSTGRES_PASSWORD=password \
 	-e POSTGRES_USER=postgres \ 
 	--network trading-net \ 
-	-d -p 5432:5432 trading-psql
+	-d -p 5432:5432 vishaysingh35/trading-psql
 
 	#verify
 	docker ps
@@ -50,7 +50,7 @@ Table of contents
 	-e "PSQL_PASSWORD=password" \ 
 	-e "IEX_PUB_TOKEN=${IEX_PUB_TOKEN}" \ 
 	--network trading-net \ 
-	-p 8080:8080 -t trading-app
+	-p 8080:8080 -t vishaysingh35/trading-app
 
 	#There should be two running containers
 	docker container ls
