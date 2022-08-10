@@ -58,8 +58,6 @@ spec:
             secretKeyRef:
               name: trading-app
               key: user
-        - name: POSTGRES_DB
-          value: jrvstrading
         ports:
         - containerPort: 5432
           name: psql
