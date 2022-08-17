@@ -18,7 +18,7 @@ pipeline {
         RESOURCE_GROUP='rg-trading-app-aks'
         CLUSTER_NAME='aks-trading-app-prod'
         DOCKER_REPO='acrjarvisvishay.azurecr.io'
-        DEPLOYMENT_NAME='deployment trading-prod'
+        DEPLOYMENT_NAME='deployment trading'
     }
 
     stages {
@@ -42,7 +42,7 @@ pipeline {
                 //show cluster info for debugging purposes
                 sh 'kubectl cluster-info'
                 //Deploy the new image
-                sh 'kubectl set image ${DEPLOYMENT_NAME} trading-prod=${DOCKER_REPO}/${IMAGE_NAME}'
+                sh 'kubectl set image ${DEPLOYMENT_NAME} trading=${DOCKER_REPO}/${IMAGE_NAME}'
                 //Check result
                 sh 'kubectl get all'
             }
