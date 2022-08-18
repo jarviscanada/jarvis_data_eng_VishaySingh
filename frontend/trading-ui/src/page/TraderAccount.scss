@@ -1,0 +1,62 @@
+.trader-account-page {
+    background-color: #F5F7FA; // set background color;
+    padding-left: 112px; // set padding
+    padding-right: 112px; // set padding
+    padding-top: 112px;// set padding
+    height: 100vh;
+
+    .title {
+        font-size: 24px;
+        font-weight: 700;
+        text-align: left;
+        padding-bottom: 24px;
+    }
+
+    .trader-cards {
+        display: flex;
+
+        .actions {
+            button {
+                margin-right: 12px;
+            }
+        }
+        .trader-card {
+            background: rgb(191, 246, 250);
+            width: fit-content;
+            margin-right: 112px;// set margin
+    
+            .info-row {
+                display: flex;
+    
+                .field {
+                    display: flex;
+                    flex-direction: column;
+                    width: 150px;
+                    margin-bottom: 112px;// set margin
+                    padding-top: 112px; // set padding
+    
+                    .content-heading {
+                        font-style: normal;
+                        font-weight: normal;
+
+                        &.amount {
+                            margin-top: 64px;
+                            font-size: 24px;
+                        }
+                    }
+    
+                    .content {
+                        max-width: 300px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 24px;
+    
+                        &.amount {
+                            font-size: 42;// set font size
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
