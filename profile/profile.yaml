@@ -11,9 +11,9 @@ summary: |
   been fascinated by what technology can do to solve real world problems, which is exactly what I want 
   to do in the software industry. In fact, learning new things is a passion of mine, so software provides 
   the perfect avenue to continually challenge myself. This mindset lead to my projects at Jarvis, which includes
-  a Linux/SQL server usage bot, a Java grep implementation & JDBC app, a Twitter CRD backend app, and a fullstack React.js
-  & SpringBoot trading app. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN generative song lyric
-  model, and a lecture/tutorial on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, 
+  a Linux/SQL server usage bot, a Java grep implementation & JDBC app, a Twitter CRD backend app, a fullstack React.js
+  & SpringBoot trading app, and an Azure & Kubernetes DevOps project. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN generative song lyric
+  model, and a lecture/tutorial on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, coding,
   playing video games, or learning guitar.
 
 # Group your skills by level.
@@ -30,6 +30,8 @@ skills:
     - RESTful services
     - Docker
     - Spring/SpringBoot
+    - Azure & Kubernetes
+    - Jenkins
   # At least 5 skills
   competent:
     - React.js
@@ -67,16 +69,16 @@ jarvis_projects:
     git_url: "/core_java"
     description:
       - "Twitter App: Designed, implemented, tested, and deployed a backend Java app that can CRD 
-      tweets using Twitter's REST API. Common design patterns & frameworks were leveraged to 
-      design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented
-      using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using
-      JUnit and Mockito, resulted in a well-tested app published on DockerHub."
+        tweets using Twitter's REST API. Common design patterns & frameworks were leveraged to 
+        design this app, such as MVC architecture, DAOs, and Spring Dependency Injection. Implemented
+        using HTTP client, core Java libraries, maven, and SpringBoot. Integration and Unit testing using
+        JUnit and Mockito, resulted in a well-tested app published on DockerHub."
       - "JDBC App: Designed, implemented, tested, and deployed a Java app that uses the JDBC library, 
-      the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD
-      persisted sales data, resulting in atomic business-related queries."
+        the DAO design pattern, a Docker PostgreSQL database, IntelliJ IDE, and DBeaver client to CRUD
+        persisted sales data, resulting in atomic business-related queries."
       - "Grep App: Designed, implemented, tested, and deployed a Java implementation of the Linux grep
-      command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively 
-      traverses file paths resulting in an output file with all matching strings."
+        command using features/libraries (like regex, lambda, Stream APIs, and JUnit), which recursively 
+        traverses file paths resulting in an output file with all matching strings."
   - name: "Springboot App"
     git_url: "/springboot"
     description: |
@@ -85,15 +87,6 @@ jarvis_projects:
       API. This app leverages three-tier architecture, microservices, and DAO design patterns. It was written
       with standard Java libraries, SpringBoot Inversion of Control, SwaggerUI, PostgreSQL external 
       databases, Maven, and deployed using Docker.
-  # - name: "Python Data Analytics"
-  #   git_url: "/python_data_anlytics"
-  #   description: "Not started."
-  # - name: "Hadoop"
-  #   git_url: "/hadoop"
-  #   description: "Not started."
-  # - name: "Spark"
-  #   git_url: "/spark"
-  #   description: "Not started."
   - name: "Frontend/React"
     git_url: "/frontend"
     description: |
@@ -103,7 +96,19 @@ jarvis_projects:
       using Docker.
   - name: "Cloud/DevOps"
     git_url: "/cloud_devops"
+    description: |
+      Deployed two pipelines for CI/CD of development and production environments for the SpringBoot trading app. The pipelines were built using 
+      Azure, Kubernetes, ACR Docker, and Jenkins, resulting in a 99.9% database availability guarantee, automated load balancing, and significantly
+      higher fault resiliency for the SpringBoot trading app. 
+  - name: "Python Data Analytics"
+    git_url: "/python_data_analytics"
     description: "In progress."
+  # - name: "Hadoop"
+  #   git_url: "/hadoop"
+  #   description: "Not started."
+  # - name: "Spark"
+  #   git_url: "/spark"
+  #   description: "Not started."
 
 # List of personal or academic projects
 # Feel free to add more projects

@@ -5,15 +5,15 @@ Bachelor's Degree of Science, majoring in Computer Science and French Studies. S
 been fascinated by what technology can do to solve real world problems, which is exactly what I want 
 to do in the software industry. In fact, learning new things is a passion of mine, so software provides 
 the perfect avenue to continually challenge myself. This mindset lead to my projects at Jarvis, which includes
-a Linux/SQL server usage bot, a Java grep implementation & JDBC app, a Twitter CRD backend app, and a fullstack React.js
-& SpringBoot trading app. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN generative song lyric
-model, and a lecture/tutorial on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, 
+a Linux/SQL server usage bot, a Java grep implementation & JDBC app, a Twitter CRD backend app, a fullstack React.js
+& SpringBoot trading app, and an Azure & Kubernetes DevOps project. Before Jarvis, I was involved in different projects like a MERN stack web app, an RNN generative song lyric
+model, and a lecture/tutorial on rootkits with respect to cybersecurity. In my spare time, I'm either building computers, coding,
 playing video games, or learning guitar.
 
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python, RESTful services, Docker, Spring/SpringBoot
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Python, RESTful services, Docker, Spring/SpringBoot, Azure & Kubernetes, Jenkins
 
 **Competent:** React.js, C, JavaScript, Numpy, scikit-learn, Pandas, Pytorch, Matplotlib, JIRA, CI/CD, Maven, MongoDB, Neo4J, Swagger
 
@@ -48,7 +48,12 @@ All components were built using React.js, styled using S/CSS, managed using NPM,
 using Docker.
 
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/cloud_devops)]: In progress.
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/cloud_devops)]: Deployed two pipelines for CI/CD of development and production environments for the SpringBoot trading app. The pipelines were built using 
+Azure, Kubernetes, ACR Docker, and Jenkins, resulting in a 99.9% database availability guarantee, automated load balancing, and significantly
+higher fault resiliency for the SpringBoot trading app. 
+
+
+**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_VishaySingh/tree/master/python_data_analytics)]: In progress.
 
 
 ## Highlighted Projects
