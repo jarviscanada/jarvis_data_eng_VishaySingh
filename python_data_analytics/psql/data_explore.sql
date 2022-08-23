@@ -18,7 +18,7 @@ SELECT MAX(invoice_date) as max, MIN(invoice_date) as min FROM retail;
 SELECT COUNT(*) FROM (SELECT stock_code FROM retail GROUP BY stock_code) AS a;
 
 -- Q6
-SELECT AVG(unit_price) FROM retail WHERE unit_price >= 0;
+SELECT AVG(a.val) FROM (SELECT SUM(unit_price * quantity) as val FROM retail GROUP BY invoice_no) AS a WHERE a.val > 0;
 
 -- Q7
 SELECT SUM(unit_price * quantity) FROM retail; 
