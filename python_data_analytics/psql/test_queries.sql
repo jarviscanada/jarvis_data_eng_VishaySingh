@@ -23,10 +23,11 @@ SELECT AVG(a.val) FROM (SELECT SUM(unit_price * quantity) as val FROM retail GRO
 -- Q7
 SELECT SUM(unit_price * quantity) FROM retail; 
 
--- Q9
+-- Q8
 SELECT (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) as yyyymm, SUM(unit_price * quantity) as sum
 FROM retail
-GROUP BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)); 
+GROUP BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date))
+ORDER BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) ASC; 
 
 --
 SELECT (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) as year_month, COUNT(*)
@@ -40,6 +41,18 @@ FROM retail
 WHERE invoice_no ~ '^[0-9]'
 GROUP BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date));
 
+--
+SELECT (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) as InvoiceYearMonth, SUM(quantity) AS Cancellation
+FROM retail
+WHERE invoice_no ~ '^[0-9]'
+GROUP BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date))
+ORDER BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) ASC 
+LIMIT 5;
 
 
+--
+SELECT (EXTRACT(YEAR FROM a.invoice_date) * 100 + EXTRACT(MONTH FROM a.invoice_date)) AS InvoiceYearMonth, COUNT(*) AS cnt
+FROM (SELECT customer_id, invoice_date FROM retail GROUP BY customer_id, invoice_date) AS a
+GROUP BY (EXTRACT(YEAR FROM a.invoice_date) * 100 + EXTRACT(MONTH FROM a.invoice_date))
+ORDER BY (EXTRACT(YEAR FROM a.invoice_date) * 100 + EXTRACT(MONTH FROM a.invoice_date)) ASC;
 
