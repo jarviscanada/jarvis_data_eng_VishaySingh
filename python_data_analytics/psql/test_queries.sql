@@ -66,3 +66,11 @@ GROUP BY customer_id
 ORDER BY customer_id ASC) AS a 
 GROUP BY a.InvoiceYearMonth
 ORDER BY a.InvoiceYearMonth ASC;
+
+
+--
+SELECT customer_id, (EXTRACT(epoch FROM (SELECT (NOW() - MAX(invoice_date))))/86400)::int AS recency, COUNT(DISTINCT invoice_no) AS invoice, SUM(unit_price * quantity) AS monetary
+FROM retail
+WHERE customer_id IS NOT NULL
+GROUP BY customer_id
+ORDER BY customer_id ASC;
