@@ -51,8 +51,8 @@ LIMIT 5;
 
 
 --
-SELECT (EXTRACT(YEAR FROM a.invoice_date) * 100 + EXTRACT(MONTH FROM a.invoice_date)) AS InvoiceYearMonth, COUNT(*) AS cnt
-FROM (SELECT customer_id, invoice_date FROM retail GROUP BY customer_id, invoice_date) AS a
-GROUP BY (EXTRACT(YEAR FROM a.invoice_date) * 100 + EXTRACT(MONTH FROM a.invoice_date))
-ORDER BY (EXTRACT(YEAR FROM a.invoice_date) * 100 + EXTRACT(MONTH FROM a.invoice_date)) ASC;
 
+SELECT (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) as InvoiceYearMonth, COUNT(DISTINCT customer_id) AS cnt
+FROM retail
+GROUP BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date))
+ORDER BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) ASC;

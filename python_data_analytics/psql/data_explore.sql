@@ -9,7 +9,7 @@ SELECT * FROM retail limit 10;
 SELECT COUNT(*) FROM retail;
 
 -- number of clients (e.g. unique client ID)
-SELECT COUNT(*) FROM (SELECT customer_id FROM retail GROUP BY customer_id) AS a;
+SELECT COUNT(customer_id) FROM (SELECT customer_id FROM retail GROUP BY customer_id) AS a;
 
 -- Q4
 SELECT MAX(invoice_date) as max, MIN(invoice_date) as min FROM retail;
