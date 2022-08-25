@@ -56,3 +56,13 @@ SELECT (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)
 FROM retail
 GROUP BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date))
 ORDER BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) ASC;
+
+--
+
+SELECT a.InvoiceYearMonth, COUNT(a.customer_id)
+FROM (SELECT MIN(EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) AS InvoiceYearMonth, customer_id 
+FROM retail 
+GROUP BY customer_id
+ORDER BY customer_id ASC) AS a 
+GROUP BY a.InvoiceYearMonth
+ORDER BY a.InvoiceYearMonth ASC;
