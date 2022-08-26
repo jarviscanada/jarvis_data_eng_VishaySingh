@@ -26,4 +26,5 @@ SELECT SUM(unit_price * quantity) FROM retail;
 -- Q9
 SELECT (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) as yyyymm, SUM(unit_price * quantity) as sum
 FROM retail
-GROUP BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)); 
+GROUP BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date))
+ORDER BY (EXTRACT(YEAR FROM invoice_date) * 100 + EXTRACT(MONTH FROM invoice_date)) ASC; 
