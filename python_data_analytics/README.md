@@ -6,7 +6,12 @@
 # Implementaion
 ## Project Architecture
 - Describe the architecture of this project, including the LGS web app.
-- Draw an architecture Diagram (please do not copy-paste any diagram from the project board)
+- The LGS web app consists of a frontend which communicates with the backend API to persist the data collected by the frontend, and both stacks are hosted by Azure's cloud services
+- Transaction data from 2009-2011 was dumped from the SQL server into an SQL file, and during the ETL process, client's personal information was removed.
+- This file, `retail.sql` is then loaded into the PostgreSQL Data Warehouse, which the Jupyter notebook queries the data from (i.e. Data Wrangling), and performs its analysis (i.e. Data Analytics)
+
+![python_arch](https://user-images.githubusercontent.com/56552567/187535369-f5ef7082-5c34-4e57-8758-f5d38c4937fd.png)
+
 
 ## Data Analytics and Wrangling
 - Create a link that points to your Jupyter notebook (use the relative path `./retail_data_analytics_wrangling.ipynb`)
