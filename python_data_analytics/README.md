@@ -5,7 +5,6 @@
 
 # Implementaion
 ## Project Architecture
-- Describe the architecture of this project, including the LGS web app.
 - The LGS web app consists of a frontend which communicates with the backend API to persist the data collected by the frontend, and both stacks are hosted by Azure's cloud services
 - Transaction data from 2009-2011 was dumped from the SQL server into an SQL file, and during the ETL process, client's personal information was removed.
 - This file, `retail.sql` is then loaded into the PostgreSQL Data Warehouse, which the Jupyter notebook queries the data from (i.e. Data Wrangling), and performs its analysis (i.e. Data Analytics)
